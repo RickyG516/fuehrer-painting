@@ -169,6 +169,152 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     .hero h1, h1 { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
     .services-grid, .grid, [class*="grid"] { grid-template-columns: 1fr !important; }
   }
+
+  /* ============================================
+     CINEMATIC EFFECTS — FUEHRER PAINTING
+  ============================================ */
+
+  /* Ken Burns cycling hero */
+  .hero { height: 620px; }
+  .hero-slides { position: absolute; inset: 0; overflow: hidden; }
+  .hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1.4s ease-in-out;
+    animation: kenBurns 12s ease-in-out infinite alternate;
+  }
+  .hero-slide.active { opacity: 0.45; }
+  .hero-slide:nth-child(2) { animation-delay: -4s; }
+  .hero-slide:nth-child(3) { animation-delay: -8s; }
+  .hero-slide:nth-child(4) { animation-delay: -12s; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translate(0%, 0%); }
+    25%  { transform: scale(1.06) translate(-1%, 0.5%); }
+    50%  { transform: scale(1.12) translate(-1.5%, -1%); }
+    75%  { transform: scale(1.08) translate(0.5%, -1.5%); }
+    100% { transform: scale(1.04) translate(1%, 0%); }
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      105deg,
+      rgba(5,8,16,0.96) 0%,
+      rgba(5,8,16,0.82) 40%,
+      rgba(5,8,16,0.45) 70%,
+      rgba(5,8,16,0.15) 100%
+    ) !important;
+  }
+  .hero-content { padding: 0 60px; max-width: 720px; }
+
+  /* Paint stroke underline on headings */
+  .section-title { position: relative; display: inline-block; }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-bright));
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: width 0.9s cubic-bezier(0.16,1,0.3,1);
+    box-shadow: 0 0 12px rgba(43,53,175,0.5);
+  }
+  .section-title.paint-line::after { width: 100%; }
+
+  /* Paint drip divider */
+  .paint-drip {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-bottom: -2px;
+  }
+  .paint-drip svg { display: block; width: 100%; }
+  .paint-drip-down {
+    display: block; width: 100%;
+    overflow: hidden; line-height: 0; margin-top: -2px;
+  }
+  .paint-drip-down svg { display: block; width: 100%; }
+
+  /* Scroll fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+                transform 0.75s cubic-bezier(0.16,1,0.3,1);
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+  .fade-in.delay-1 { transition-delay: 0.1s; }
+  .fade-in.delay-2 { transition-delay: 0.22s; }
+  .fade-in.delay-3 { transition-delay: 0.34s; }
+  .fade-in.delay-4 { transition-delay: 0.46s; }
+
+  /* Counter pulse */
+  .trust-num { transition: color 0.3s; }
+  .trust-num.counting { color: var(--blue-bright); }
+
+  /* Before/After Slider */
+  .ba-wrap {
+    position: relative; overflow: hidden;
+    border-radius: 16px; cursor: ew-resize;
+    user-select: none; touch-action: none;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  }
+  .ba-after-img {
+    display: block; width: 100%; height: 380px;
+    object-fit: cover; pointer-events: none;
+  }
+  .ba-before-layer {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    overflow: hidden; width: 50%;
+    border-right: 3px solid var(--blue-bright);
+  }
+  .ba-before-img {
+    display: block; width: 100vw; max-width: 100%;
+    height: 380px; object-fit: cover; pointer-events: none;
+  }
+  .ba-handle {
+    position: absolute; top: 50%; right: -22px;
+    transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--blue); border: 3px solid var(--blue-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: #fff; cursor: ew-resize;
+    box-shadow: 0 4px 20px rgba(43,53,175,0.7);
+    z-index: 10;
+  }
+  .ba-label {
+    position: absolute; top: 16px;
+    background: rgba(5,8,16,0.75); color: #fff;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 5px 12px; border-radius: 50px; text-transform: uppercase;
+    border: 1px solid var(--border);
+  }
+  .ba-label.before { left: 16px; }
+  .ba-label.after { right: 16px; }
+  .ba-section { background: var(--black2); padding: 80px 0; }
+  .ba-section .section-label { margin-bottom: 12px; }
+  .ba-text { font-size: 17px; color: var(--muted); max-width: 560px; margin-bottom: 40px; line-height: 1.7; }
+
+  /* Shimmer on hero h1 accent */
+  .hero h1 span {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  /* Section entrance glow */
+  @keyframes sectionGlow {
+    from { box-shadow: inset 0 0 0 1px transparent; }
+    to   { box-shadow: inset 0 0 60px rgba(43,53,175,0.08); }
+  }
+
 </style>
 </head>
 <body>
@@ -183,6 +329,8 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
         <a href="#services">Services</a>
         <a href="#work">Our Work</a>
         <a href="#reviews">Reviews</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
         <a href="tel:5632134418" class="nav-cta">📞 (563) 213-4418</a>
       </div>
     </div>
@@ -191,7 +339,12 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 
 <!-- HERO with real photo -->
 <section class="hero" style="padding:0; position:relative;">
-  <img class="hero-photo" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1400&q=80" alt="Professional exterior painting" onerror="this.style.opacity='0'">
+  <div class="hero-slides" id="heroSlides">
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=85&auto=format&fit=crop')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=85&auto=format&fit=crop')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=85&auto=format&fit=crop')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop')"></div>
+</div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">
@@ -237,27 +390,27 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     <div class="section-title">Our Services</div>
     <p style="font-size:17px; color:var(--muted); max-width:560px;">Interior, exterior, decks, floors, power washing — handled with the same precision and professionalism every single time.</p>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card fade-in">
         <div class="service-icon">🖌️</div>
         <div class="service-name">Interior Painting</div>
         <div class="service-desc">Walls, ceilings, trim. Clean prep, clean lines, zero mess left behind.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card fade-in delay-1">
         <div class="service-icon">🏠</div>
         <div class="service-name">Exterior Painting</div>
         <div class="service-desc">Weather-resistant finishes that protect and transform your home's curb appeal.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card fade-in delay-2">
         <div class="service-icon">🌲</div>
         <div class="service-name">Staining</div>
         <div class="service-desc">Fences, decks, siding, and more. The right stain, applied right — every time.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card fade-in delay-3">
         <div class="service-icon">💧</div>
         <div class="service-name">Power Washing</div>
         <div class="service-desc">Deep clean driveways, siding, decks, and patios. Proper prep for any project.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card fade-in delay-4">
         <div class="service-icon" style="font-size:32px; margin-bottom:14px;">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
         </div>
@@ -267,6 +420,16 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     </div>
   </div>
 </section>
+<div class="paint-drip-down">
+<svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <path d="M0,0 L1440,0 L1440,30 
+    Q1380,70 1320,35 Q1260,0 1200,40 Q1140,70 1080,32 
+    Q1020,0 960,45 Q900,70 840,28 Q780,0 720,50 
+    Q660,70 600,30 Q540,0 480,48 Q420,70 360,25 
+    Q300,0 240,52 Q180,70 120,28 Q60,0 0,45 Z" 
+    fill="#111827"/>
+</svg>
+</div>
 
 <!-- REAL PHOTO SECTION -->
 <section class="photo-section" id="work">
@@ -275,26 +438,17 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     <div class="section-title">Real Jobs. Real Results.</div>
     <p style="font-size:17px; color:var(--muted); max-width:560px;">Every project is handled with the same attention to detail — whether it's a single room or a full exterior overhaul.</p>
     <!-- Mark: drop job photos here before launch -->
-    <div class="photo-grid">
-      <div class="photo-card">
-        <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320"><rect width="800" height="320" fill="%231e2a3a"/><text x="50%25" y="45%25" font-family="Inter,sans-serif" font-size="18" fill="%2394a3b8" text-anchor="middle" dominant-baseline="middle">BEFORE/AFTER PHOTO</text><text x="50%25" y="60%25" font-family="Inter,sans-serif" font-size="14" fill="%2360a5fa" text-anchor="middle" dominant-baseline="middle">Mark to provide before launch</text></svg>" alt="[BEFORE/AFTER PHOTO — Mark to provide]" loading="lazy">
-        <div class="photo-caption">
-          <div class="photo-caption-title">[BEFORE/AFTER PHOTO — Mark to provide]</div>
-          <div class="photo-caption-sub">Exterior project — Dubuque, IA</div>
-        </div>
-        <div class="photo-badge">Exterior</div>
+    <div class="ba-wrap fade-in" id="baSlider">
+      <!-- BEFORE image -->
+      <img class="ba-after-img" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1200&q=85&auto=format&fit=crop" alt="After painting — Fuehrer Painting LLC">
+      <div class="ba-before-layer" id="baLayer">
+        <img class="ba-before-img" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=85&auto=format&fit=crop" alt="Before painting">
+        <div class="ba-handle">⟺</div>
+        <span class="ba-label before">BEFORE</span>
       </div>
-      <div class="photo-card">
-        <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320"><rect width="800" height="320" fill="%231e2a3a"/><text x="50%25" y="45%25" font-family="Inter,sans-serif" font-size="18" fill="%2394a3b8" text-anchor="middle" dominant-baseline="middle">BEFORE/AFTER PHOTO</text><text x="50%25" y="60%25" font-family="Inter,sans-serif" font-size="14" fill="%2360a5fa" text-anchor="middle" dominant-baseline="middle">Mark to provide before launch</text></svg>" alt="[BEFORE/AFTER PHOTO — Mark to provide]" loading="lazy">
-        <div class="photo-caption">
-          <div class="photo-caption-title">[BEFORE/AFTER PHOTO — Mark to provide]</div>
-          <div class="photo-caption-sub">Interior project — Dubuque, IA</div>
-        </div>
-        <div class="photo-badge">Interior</div>
-      </div>
+      <span class="ba-label after">AFTER</span>
     </div>
-  </div>
-</section>
+    <p style="text-align:center; color:var(--muted); font-size:14px; margin-top:20px; font-style:italic;">← Drag to reveal the transformation · Mark's real job photos coming soon</p></section>
 
 
 
@@ -316,22 +470,22 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
       <div class="section-title">The Fuehrer Painting Difference</div>
     </div>
     <div class="why-grid">
-      <div class="why-card">
+      <div class="why-card fade-in">
         <div class="why-icon">⚡</div>
         <div class="why-title">Fast Response</div>
         <div class="why-desc">We respond to every inquiry within 2 hours during business hours. No waiting — just a straight answer and a real estimate.</div>
       </div>
-      <div class="why-card">
+      <div class="why-card fade-in delay-1">
         <div class="why-icon">📋</div>
         <div class="why-title">Licensed &amp; Local</div>
         <div class="why-desc">Iowa-licensed contractor, fully insured, based right here in Dubuque. We're your neighbors and we treat your home like our own.</div>
       </div>
-      <div class="why-card">
+      <div class="why-card fade-in delay-2">
         <div class="why-icon">✅</div>
         <div class="why-title">Guaranteed Work</div>
         <div class="why-desc">We don't leave until you're satisfied. Clean, precise, professional — every job done right or we make it right. Period.</div>
       </div>
-      <div class="why-card">
+      <div class="why-card fade-in delay-3">
         <div class="why-icon">🏅</div>
         <div class="why-title">Licensed &amp; Fully Insured — Every Job</div>
         <div class="why-desc">Every project is covered. Iowa-licensed, fully insured — you're protected from day one, no exceptions.</div>
@@ -358,7 +512,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
       <div class="section-title">What Dubuque Homeowners Say</div>
     </div>
     <div class="reviews-grid">
-      <div class="review-card">
+      <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <div class="review-text">"[REAL REVIEW 1 — Copy from Google Reviews before launch]"</div>
         <div class="review-author">
@@ -366,7 +520,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
           <div><div class="review-name">[Customer Name 1]</div><div class="review-loc">Dubuque, IA — Google Review</div></div>
         </div>
       </div>
-      <div class="review-card">
+      <div class="review-card fade-in delay-1">
         <div class="review-stars">★★★★★</div>
         <div class="review-text">"[REAL REVIEW 2 — Copy from Google Reviews before launch]"</div>
         <div class="review-author">
@@ -374,7 +528,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
           <div><div class="review-name">[Customer Name 2]</div><div class="review-loc">Dubuque, IA — Google Review</div></div>
         </div>
       </div>
-      <div class="review-card">
+      <div class="review-card fade-in delay-2">
         <div class="review-stars">★★★★★</div>
         <div class="review-text">"[REAL REVIEW 3 — Copy from Google Reviews before launch]"</div>
         <div class="review-author">
@@ -424,6 +578,18 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 </section>
 
 <!-- FOOTER -->
+
+<div class="paint-drip">
+<svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <path d="M0,70 L0,40 
+    Q60,0 120,42 Q180,70 240,18 Q300,0 360,45 
+    Q420,70 480,22 Q540,0 600,40 Q660,70 720,20 
+    Q780,0 840,44 Q900,70 960,25 Q1020,0 1080,42 
+    Q1140,70 1200,30 Q1260,0 1320,45 Q1380,70 1440,35 
+    L1440,70 Z" 
+    fill="#0c1220"/>
+</svg>
+</div>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -434,12 +600,12 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
       <div>
         <div class="footer-col-title">Services</div>
         <div class="footer-links">
-          <a href="#services">Interior Painting</a>
-          <a href="#services">Exterior Painting</a>
-          <a href="#services">Power Washing</a>
-          <a href="#services">Deck Coating</a>
-          <a href="#services">Floor Coating</a>
-          <a href="#services">Staining</a>
+          <a href="interior-painting-dubuque.html">Interior Painting</a>
+          <a href="exterior-painting-dubuque.html">Exterior Painting</a>
+          <a href="cabinet-painting-dubuque.html">Cabinet Painting</a>
+          <a href="commercial-painting-dubuque.html">Commercial</a>
+          <a href="staining-dubuque.html">Staining</a>
+          <a href="gallery.html">Gallery</a>
         </div>
       </div>
       <div>
@@ -474,5 +640,96 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   </div>
 </div>
 
+
+<script>
+// ── Ken Burns Cycling Hero ──
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  let cur = 0;
+  slides[0].classList.add('active');
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+  }, 5000);
+})();
+
+// ── Scroll Fade-In ──
+(function(){
+  const els = document.querySelectorAll('.fade-in');
+  if(!els.length) return;
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// ── Paint Stroke on Section Titles ──
+(function(){
+  const titles = document.querySelectorAll('.section-title');
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('paint-line'); }
+    });
+  }, { threshold: 0.5 });
+  titles.forEach(function(t){ io.observe(t); });
+})();
+
+// ── Counter Animation ──
+(function(){
+  function countUp(el, target, suffix) {
+    var start = 0, duration = 1800, step = 16;
+    var increment = target / (duration / step);
+    el.classList.add('counting');
+    var timer = setInterval(function(){
+      start += increment;
+      if(start >= target){
+        el.textContent = target + suffix;
+        el.classList.remove('counting');
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start) + suffix;
+      }
+    }, step);
+  }
+  var nums = document.querySelectorAll('.trust-num');
+  var done = false;
+  var io = new IntersectionObserver(function(entries){
+    if(done) return;
+    if(entries[0].isIntersecting){
+      done = true;
+      nums.forEach(function(el){
+        var text = el.textContent;
+        var match = text.match(/(\d+)(\+?.*)/);
+        if(match){ countUp(el, parseInt(match[1]), match[2]); }
+      });
+    }
+  }, { threshold: 0.5 });
+  var tb = document.querySelector('.trust-bar');
+  if(tb) io.observe(tb);
+})();
+
+// ── Before/After Slider ──
+(function(){
+  var wrap = document.getElementById('baSlider');
+  var layer = document.getElementById('baLayer');
+  if(!wrap || !layer) return;
+  var dragging = false;
+  function setPos(x){
+    var rect = wrap.getBoundingClientRect();
+    var pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+    layer.style.width = pct + '%';
+  }
+  wrap.addEventListener('mousedown', function(e){ dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove', function(e){ if(dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup', function(){ dragging = false; });
+  wrap.addEventListener('touchstart', function(e){ dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchmove', function(e){ if(dragging) setPos(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchend', function(){ dragging = false; });
+})();
+</script>
 </body>
 </html>
