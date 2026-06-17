@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Fuehrer Painting LLC — Dubuque, Iowa Painter</title>
+<meta name="description" content="Frequently asked questions about Fuehrer Painting LLC. Get answers about our process, pricing, scheduling, and painting services in Dubuque and the Tri-State area.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--blue:#2B35AF;--blue-mid:#2B35AF;--blue-light:#4a90d9;--blue-bright:#60a5fa;--black:#050810;--black2:#0c1220;--black3:#111827;--black4:#1e2a3a;--border:#2B35AF44;--white:#ffffff;--offwhite:#e8f0fe;--muted:#94a3b8;--radius:10px}
+  body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6}
+  a{color:var(--blue-bright);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1140px;margin:0 auto;padding:0 20px}
+  nav{background:#000;position:sticky;top:0;z-index:200;border-bottom:1px solid #1a1a2e}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .nav-logo img{height:72px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-size:14px;font-weight:600;color:#e5e5e5;transition:color 0.2s}
+  .nav-links a:hover{color:var(--blue-bright);text-decoration:none}
+  .nav-cta{background:var(--blue);color:#fff !important;padding:10px 20px;border-radius:var(--radius);border:1px solid var(--blue-light)}
+  .nav-dropdown{position:relative}
+  .nav-dropdown-toggle{font-size:14px;font-weight:600;color:#e5e5e5;cursor:pointer;display:flex;align-items:center;gap:4px}
+  .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:0;background:#000;border:1px solid #1e2a3a;border-radius:12px;padding:10px 0;min-width:220px;z-index:300;box-shadow:0 20px 50px rgba(0,0,0,0.8)}
+  .nav-dropdown-menu a{display:block;padding:10px 18px;font-size:14px;font-weight:500;color:#e5e5e5}
+  .nav-dropdown-menu a:hover{background:#1e2a3a;color:var(--blue-bright);text-decoration:none}
+  .nav-dropdown:hover .nav-dropdown-menu{display:block}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
+  @media(max-width:768px){
+    .nav-links{display:none;flex-direction:column;align-items:flex-start;gap:0;position:absolute;top:80px;left:0;right:0;background:#000;border-bottom:1px solid #1a1a2e;padding:16px 20px}
+    .nav-links.open{display:flex}
+    .nav-dropdown-menu{position:static;box-shadow:none;border:none;background:#0c1220;border-radius:8px;margin:4px 0 4px 12px;padding:6px 0;display:none}
+    .nav-dropdown.open .nav-dropdown-menu{display:block}
+    .nav-hamburger{display:flex}
+  }
+  .page-hero{background:var(--black2);border-bottom:1px solid var(--border);padding:64px 0 48px}
+  .page-hero h1{font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--white);margin-bottom:12px}
+  .page-hero p{color:var(--muted);font-size:16px;max-width:580px}
+  /* FAQ ACCORDION */
+  .faq-section{padding:72px 0 100px}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;max-width:1040px}
+  .faq-category{margin-bottom:52px}
+  .faq-category-title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:20px}
+  .faq-item{border-bottom:1px solid var(--border)}
+  .faq-question{width:100%;background:none;border:none;color:var(--white);font-family:'Inter',sans-serif;font-size:15px;font-weight:600;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.4}
+  .faq-question:hover{color:var(--blue-bright)}
+  .faq-icon{width:20px;height:20px;border:1.5px solid var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:var(--blue-bright);transition:transform 0.2s}
+  .faq-item.open .faq-icon{transform:rotate(45deg)}
+  .faq-answer{display:none;padding:0 0 18px;color:var(--muted);font-size:14px;line-height:1.8}
+  .faq-item.open .faq-answer{display:block}
+  /* CTA */
+  .faq-cta{background:var(--black2);border:1px solid var(--border);border-radius:16px;padding:48px;text-align:center;margin-top:16px}
+  .faq-cta h2{font-size:26px;font-weight:800;margin-bottom:10px}
+  .faq-cta p{color:var(--muted);font-size:15px;margin-bottom:28px}
+  .btn-primary{display:inline-block;background:var(--blue-mid);color:#fff;font-weight:700;padding:14px 28px;border-radius:var(--radius);font-size:15px;cursor:pointer;border:2px solid var(--blue-light);transition:all 0.2s}
+  .btn-primary:hover{background:var(--blue);border-color:var(--blue-bright);text-decoration:none}
+  @media(max-width:768px){.faq-grid{grid-template-columns:1fr;gap:0}}
+  footer{background:#000;border-top:1px solid #1a1a2e;padding:56px 0 28px}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;margin-bottom:40px}
+  .footer-logo-img{height:64px;width:auto;margin-bottom:14px}
+  .footer-tagline{font-size:13px;color:#4b5563;line-height:1.7;max-width:260px}
+  .footer-col-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:14px}
+  .footer-links{display:flex;flex-direction:column;gap:8px}
+  .footer-links a{font-size:13px;color:#6b7280}
+  .footer-links a:hover{color:var(--blue-bright);text-decoration:none}
+  .footer-contact-item{font-size:13px;color:#6b7280;margin-bottom:8px}
+  .footer-contact-item a{color:inherit}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid #1a1a2e;flex-wrap:wrap;gap:8px}
+  .footer-copy{color:#374151;font-size:12px}
+  .footer-powered{font-size:12px;color:#374151}
+  .footer-powered a{color:#60a5fa}
+  @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="Fuehrer Painting LLC" class="nav-logo-img"></a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-toggle">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="vertical-align:middle;margin-left:2px;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <div class="nav-dropdown-menu">
+            <a href="interior-painting-dubuque.html">🖌️ Interior Painting</a>
+            <a href="exterior-painting-dubuque.html">🏠 Exterior Painting</a>
+            <a href="commercial-painting-dubuque.html">🏢 Commercial</a>
+            <a href="cabinet-painting-dubuque.html">🪵 Cabinet Painting</a>
+            <a href="staining-dubuque.html">🪵 Staining</a>
+            <a href="new-construction-painting-dubuque.html">🏗️ New Construction</a>
+          </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="careers.html" style="color:#60a5fa;font-weight:600;">We're Hiring</a>
+        <a href="contact.html" class="nav-cta">📞 (563) 213-4418</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p>Straight answers about how we work, what we charge, and what you can expect when you hire Fuehrer Painting.</p>
+  </div>
+</div>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+
+      <!-- LEFT COLUMN -->
+      <div>
+        <div class="faq-category">
+          <div class="faq-category-title">Estimates & Pricing</div>
+
+          <div class="faq-item">
+            <button class="faq-question">How much does it cost to paint a house?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Every project is different — size, condition, number of colors, surface prep needed, and materials all affect the price. We don't do ballpark quotes over the phone because they end up being wrong and that wastes everyone's time. Call us or fill out our estimate form and we'll come take a look. Estimates are always free.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Are your estimates free?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes, completely free. We'll schedule a time to walk the project, take measurements, and get you a written estimate with no obligation.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">How long is an estimate good for?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Our estimates are valid for 30 days. Material costs can fluctuate, so if you're coming back to us months later on an older quote, just give us a call and we'll confirm current pricing.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Do you require a deposit?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">For larger projects we typically ask for a deposit to cover materials before we start. This is outlined in your project agreement before any work begins. Smaller jobs may not require a deposit — we'll let you know upfront.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What payment methods do you accept?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">We accept cash, check, and electronic payment. Final payment is due upon project completion. We'll walk through the finished work with you before asking for payment.</div>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <div class="faq-category-title">Scheduling</div>
+
+          <div class="faq-item">
+            <button class="faq-question">How far out are you booked?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">It depends on the time of year. Spring and summer are our busiest seasons. Call or message us to check current availability — we can often give you a rough timeline within 24 hours.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What days and hours do you work?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">We work Monday through Saturday, 7am to 6pm. We'll set a project start time with you during scheduling and communicate clearly if anything changes.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Do I need to be home during the work?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Not necessarily. Many clients give us access and go about their day. We'll communicate progress and any questions by phone or text. You do need to be available for the final walkthrough at completion.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What if the weather doesn't cooperate?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Exterior work requires specific temperature and humidity conditions for paint to cure properly. If weather pushes your project, we'll communicate proactively and get you rescheduled as quickly as possible. Interior work is unaffected by weather.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <div class="faq-category">
+          <div class="faq-category-title">Our Process</div>
+
+          <div class="faq-item">
+            <button class="faq-question">What does your prep process look like?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Prep is where the job is won or lost. We clean surfaces, sand, fill holes and cracks, caulk gaps, prime bare spots, and protect floors, trim, and furniture before a drop of finish paint goes on. Rushed prep is why other paint jobs look bad in two years. We don't rush prep.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What paint brands do you use?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">We use professional-grade paints — Sherwin-Williams and Benjamin Moore are our go-tos depending on the application. We're happy to use a specific product if you have a preference. We don't cut corners with builder-grade paint.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">How many coats do you apply?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Typically two finish coats after primer as needed. Some surfaces — particularly dark-to-light color changes or raw wood — may need additional coats. We include what's necessary to do the job right, not what's easiest.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Will you clean up after the job?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Always. We remove all tape, drop cloths, and materials. Furniture goes back. Floors are clean. You shouldn't be able to tell we were there except for the fresh paint.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">How long does interior painting take to dry?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Most interior latex paints are dry to the touch in 1–2 hours and can be recoated in 4 hours. Full cure takes 2–4 weeks. We'll let you know any specific care instructions for your project before we leave.</div>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <div class="faq-category-title">Services & Coverage Area</div>
+
+          <div class="faq-item">
+            <button class="faq-question">Where do you work?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">We're based in Dubuque and serve the surrounding area including Dyersville, Peosta, Asbury, Galena IL, Platteville WI, and the broader Tri-State region. Not sure if you're in range? Call us — we're flexible.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Do you do cabinet painting?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Cabinet painting is one of the best-value upgrades you can do in a kitchen or bathroom. We spray-apply a durable finish for a factory-smooth look. It's a completely different process than wall painting and we treat it that way.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Do you do commercial work?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. We work with businesses, property managers, and contractors on commercial interiors and exteriors. We can work around business hours and coordinate with general contractors on new construction projects.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Are you licensed and insured?<span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Fuehrer Painting LLC is a licensed business in Iowa and carries general liability insurance. We can provide proof of insurance before any job begins. You should never hire a painter who can't show you this.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+      <h2>Still have questions?</h2>
+      <p>Call us, send a message, or request a free estimate. We respond fast.</p>
+      <a href="contact.html" class="btn-primary">Get a Free Estimate →</a>
+      &nbsp;&nbsp;
+      <a href="tel:5632134418" class="btn-primary" style="background:transparent;border-color:rgba(255,255,255,0.3);">📞 (563) 213-4418</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="images/logo.png" alt="Fuehrer Painting LLC" class="footer-logo-img">
+        <p class="footer-tagline">Dubuque's trusted painting contractor since 2010. Licensed, insured, and backed by a 100% satisfaction guarantee.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="interior-painting-dubuque.html">Interior Painting</a>
+          <a href="exterior-painting-dubuque.html">Exterior Painting</a>
+          <a href="cabinet-painting-dubuque.html">Cabinet Painting</a>
+          <a href="commercial-painting-dubuque.html">Commercial</a>
+          <a href="new-construction-painting-dubuque.html">New Construction</a>
+          <a href="staining-dubuque.html">Staining</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">📞 <a href="tel:5632134418">(563) 213-4418</a></div>
+        <div class="footer-contact-item">✉️ <a href="mailto:fuehrerpaintingllc@gmail.com">fuehrerpaintingllc@gmail.com</a></div>
+        <div class="footer-contact-item">📍 Dubuque, Iowa</div>
+        <div class="footer-contact-item">🗺️ Serving the Tri-State Area</div>
+        <div class="footer-contact-item">⏰ Mon–Sat 7am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Fuehrer Painting LLC. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html" style="color:#6b7280;">Privacy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:#6b7280;">Terms</a> &nbsp;|&nbsp; <a href="faq.html" style="color:#6b7280;">FAQ</a></div>
+      <div class="footer-powered">Digital marketing by <a href="https://urbannicheco.com">Urban Niche Co.</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger'),links=document.getElementById('navLinks');
+  if(!btn||!links)return;
+  btn.addEventListener('click',function(){links.classList.toggle('open')});
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el){
+    el.addEventListener('click',function(e){if(window.innerWidth<=768){e.preventDefault();el.closest('.nav-dropdown').classList.toggle('open')}});
+  });
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item');
+      var wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
