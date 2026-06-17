@@ -51,30 +51,8 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   
   
 
-  /* HERO */
-  .hero { background: var(--black2); padding: 0; position: relative; }
-  .hero-photo { width: 100%; height: 520px; object-fit: cover; display: block; opacity: 0.35; }
-  .hero-bg { position:absolute; inset:0; overflow:hidden; z-index:0; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,16,0.97) 0%, rgba(5,8,16,0.75) 55%, rgba(5,8,16,0.2) 100%); }
-  .hero-content { position:relative; z-index:2; left: 0; padding: 0 40px; max-width: 680px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(30,58,138,0.35); border: 1px solid var(--blue-light); border-radius: 50px; padding: 7px 18px; margin-bottom: 24px; }
-  .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
-  .hero-badge-text { font-size: 13px; color: var(--blue-bright); font-weight: 600; }
-  .hero h1 { font-size: clamp(36px, 6vw, 62px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; color: #fff; }
-  .hero h1 span { color: var(--blue-bright); }
-  .hero p { font-size: 17px; color: var(--offwhite); margin-bottom: 36px; line-height: 1.7; opacity: 0.9; }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-  .hero-trust { display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
-  .hero-trust-item { display: flex; align-items: center; gap: 8px; color: var(--offwhite); font-size: 14px; opacity: 0.85; }
-  .hero-trust-item .check { color: var(--blue-bright); font-weight: 700; }
-
-  /* TRUST BAR */
-  .trust-bar { position:relative; z-index:10;  background: var(--blue); padding: 22px 0; border-top: 1px solid var(--blue-light); border-bottom: 1px solid var(--blue-light); }
-  .trust-bar-inner { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; text-align: center; }
-  .trust-num { font-size: 28px; font-weight: 900; color: #fff; }
-  .trust-lbl { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; }
-  .trust-div { width: 1px; height: 44px; background: rgba(255,255,255,0.25); }
-
+  
+  
   /* SERVICES */
   .services-section { background: var(--black3); }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 48px; }
@@ -163,8 +141,8 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     nav ul { display: none; }
     .form-grid, .footer-grid, .photo-grid { grid-template-columns: 1fr; gap: 32px; }
     .trust-div { display: none; }
-    .hero-content { padding: 0 20px; max-width: 100%;  padding: 48px 20px; }
-    .hero { padding: 100px 20px 60px !important; }
+    .hero-content { padding: 0 20px; max-width: 100%; }
+    .hero { padding: 90px 20px 60px !important; }
     .hero-photo { height: 280px; position: absolute; top: 0; left: 0; width: 100%; }
     .hero-overlay { position: absolute; }
     .hero h1, h1 { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
@@ -175,37 +153,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
      CINEMATIC EFFECTS — FUEHRER PAINTING
   ============================================ */
 
-  /* Ken Burns cycling hero */
-  .hero { min-height: 620px; display:flex; align-items:center; padding: 80px 0 60px; }
-  .hero-slides { position: absolute; inset: 0; overflow: hidden; }
-  .hero-slide {
-    position: absolute; inset: 0;
-    background-size: cover; background-position: center;
-    opacity: 0; transition: opacity 1.4s ease-in-out;
-    animation: kenBurns 12s ease-in-out infinite alternate;
-  }
-  .hero-slide.active { opacity: 0.45; }
-  .hero-slide:nth-child(2) { animation-delay: -4s; }
-  .hero-slide:nth-child(3) { animation-delay: -8s; }
-  .hero-slide:nth-child(4) { animation-delay: -12s; }
-  @keyframes kenBurns {
-    0%   { transform: scale(1.0) translate(0%, 0%); }
-    25%  { transform: scale(1.06) translate(-1%, 0.5%); }
-    50%  { transform: scale(1.12) translate(-1.5%, -1%); }
-    75%  { transform: scale(1.08) translate(0.5%, -1.5%); }
-    100% { transform: scale(1.04) translate(1%, 0%); }
-  }
-  .hero-overlay {
-    background: linear-gradient(
-      105deg,
-      rgba(5,8,16,0.96) 0%,
-      rgba(5,8,16,0.82) 40%,
-      rgba(5,8,16,0.45) 70%,
-      rgba(5,8,16,0.15) 100%
-    ) !important;
-  }
-  .hero-content { padding: 0 60px; max-width: 720px; }
-
+  
   /* Paint stroke underline on headings */
   .section-title { position: relative; display: inline-block; }
   .section-title::after {
@@ -434,6 +382,55 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   }
 
   html { scroll-padding-top: 88px; }
+
+  /* ── HERO (single source of truth) ── */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    padding: 130px 0 90px;
+    background: var(--black2);
+  }
+  .hero-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+  .hero-slides { position:absolute; inset:0; }
+  .hero-slide {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.4s ease-in-out;
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  .hero-slide.active { opacity:0.42; }
+  .hero-slide:nth-child(2) { animation-delay:-4s; }
+  .hero-slide:nth-child(3) { animation-delay:-8s; }
+  .hero-slide:nth-child(4) { animation-delay:-12s; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translate(0%,0%); }
+    25%  { transform: scale(1.06) translate(-1%,0.5%); }
+    50%  { transform: scale(1.12) translate(-1.5%,-1%); }
+    75%  { transform: scale(1.08) translate(0.5%,-1.5%); }
+    100% { transform: scale(1.04) translate(1%,0%); }
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(105deg,
+      rgba(5,8,16,0.96) 0%,
+      rgba(5,8,16,0.82) 40%,
+      rgba(5,8,16,0.45) 70%,
+      rgba(5,8,16,0.15) 100%
+    );
+  }
+  .hero-content { position:relative; z-index:2; padding:0 60px; max-width:740px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(30,58,138,0.35); border:1px solid var(--blue-light); border-radius:50px; padding:7px 18px; margin-bottom:24px; }
+  .hero-badge-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+  .hero-badge-text { font-size:13px; color:var(--blue-bright); font-weight:600; }
+  .hero h1 { font-size:clamp(34px,5.5vw,58px); font-weight:900; line-height:1.06; margin-bottom:20px; color:#fff; }
+  .hero h1 span { color:var(--blue-bright); }
+  .hero p { font-size:17px; color:var(--offwhite); margin-bottom:36px; line-height:1.7; opacity:0.9; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-trust { display:flex; gap:24px; margin-top:36px; flex-wrap:wrap; }
+  .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
+  .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
+  .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }
+
 </style>
 </head>
 <body>
@@ -473,10 +470,10 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 <section class="hero">
     <div class="hero-bg">
   <div class="hero-slides" id="heroSlides">
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=85&auto=format&fit=crop')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=85&auto=format&fit=crop')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=85&auto=format&fit=crop')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop')"></div>
+  <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no')"></div>
+  <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn3bWQMFbMAhBGnAwMkU4HNWBy8qnJAaGHYQT7XZ29ejLdkgpvZ-NZAcMAA3mSVY599oaZFdImOGeILWfnaz3QLL-yK9BAaDWwaTy-R72eXzrSfyVcicO4FTp4YqyoByR-Kkio6lY0cVsbsH=w1600-h1200-k-no')"></div>
+  <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZ3YPWFcnAp4qE0LzmQDpOu3F1eBYDrUh0gW7QsjVEoDjQSxOlBwpzgb0ce44uV80o4sXBw5UpxN6rWuvjddzkISr8DuydyrVEXOFZ2AvlCA3hX8-XW5H0XVl04hgczTDN9dSdZQ=w1600-h1200-k-no')"></div>
+  <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHbXx5_AVq7mGPt5MhkdoYlTKCzcRTCkVcPju-g_Sqk28q2RzddO3d8cpCCNyplGmeCV9nN_biVpscqG5h2qwHqOeyjTb6da0Kic8HQL6M5nms0JYljdVb5krvZMMBIgbWn6eIo=w1600-h1200-k-no')"></div>
 </div>
   <div class="hero-overlay"></div>
   </div>
@@ -574,9 +571,9 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     <!-- Mark: drop job photos here before launch -->
     <div class="ba-wrap fade-in" id="baSlider">
       <!-- BEFORE image -->
-      <img class="ba-after-img" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1200&q=85&auto=format&fit=crop" alt="After painting — Fuehrer Painting LLC">
+      <img class="ba-after-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="After painting — Fuehrer Painting LLC">
       <div class="ba-before-layer" id="baLayer">
-        <img class="ba-before-img" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=85&auto=format&fit=crop" alt="Before painting">
+        <img class="ba-before-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3Z7pPOZzWw4UERXFbRnz8CMCPJMo-SB14d9_MmCymnn_o3wBwNGkKvhA8uyQiR2l41LtbPR529PjgE7SuqLtlfGDs0LOHMV5J4_KtHdb-DI4fQHohoYvyGlJBZNacNaTqGn4BZVNVgJ0E=w900-h1200-k-no" alt="Before painting">
         <div class="ba-handle">⟺</div>
         <span class="ba-label before">BEFORE</span>
       </div>

@@ -32,11 +32,11 @@ section{padding:80px 0;}
 
 
 .hero{height:640px;position:relative;}
-.hero-slides{position:absolute;inset:0;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;animation:kenBurns 12s ease-in-out infinite alternate;}
-.hero-slide.active{opacity:0.4;}
-.hero-slide:nth-child(2){animation-delay:-4s;}.hero-slide:nth-child(3){animation-delay:-8s;}.hero-slide:nth-child(4){animation-delay:-12s;}
-@keyframes kenBurns{0%{transform:scale(1) translate(0%,0%);}50%{transform:scale(1.1) translate(-1%,-1%);}100%{transform:scale(1.04) translate(1%,0%);}}
+
+
+
+
+50%{transform:scale(1.1) translate(-1%,-1%);}100%{transform:scale(1.04) translate(1%,0%);}}
 .hero-bg { position:absolute; inset:0; overflow:hidden; z-index:0; }
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(5,8,16,0.97) 0%,rgba(5,8,16,0.85) 40%,rgba(5,8,16,0.5) 65%,rgba(5,8,16,0.1) 100%);}
 .hero-content{position:relative; z-index:2; left:0;padding:0 60px;max-width:720px;}
@@ -234,6 +234,55 @@ section{padding:80px 0;}
   }
 
   html { scroll-padding-top: 88px; }
+
+  /* ── HERO (single source of truth) ── */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    padding: 130px 0 90px;
+    background: var(--black2);
+  }
+  .hero-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+  .hero-slides { position:absolute; inset:0; }
+  .hero-slide {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.4s ease-in-out;
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  .hero-slide.active { opacity:0.42; }
+  .hero-slide:nth-child(2) { animation-delay:-4s; }
+  .hero-slide:nth-child(3) { animation-delay:-8s; }
+  .hero-slide:nth-child(4) { animation-delay:-12s; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translate(0%,0%); }
+    25%  { transform: scale(1.06) translate(-1%,0.5%); }
+    50%  { transform: scale(1.12) translate(-1.5%,-1%); }
+    75%  { transform: scale(1.08) translate(0.5%,-1.5%); }
+    100% { transform: scale(1.04) translate(1%,0%); }
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(105deg,
+      rgba(5,8,16,0.96) 0%,
+      rgba(5,8,16,0.82) 40%,
+      rgba(5,8,16,0.45) 70%,
+      rgba(5,8,16,0.15) 100%
+    );
+  }
+  .hero-content { position:relative; z-index:2; padding:0 60px; max-width:740px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(30,58,138,0.35); border:1px solid var(--blue-light); border-radius:50px; padding:7px 18px; margin-bottom:24px; }
+  .hero-badge-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+  .hero-badge-text { font-size:13px; color:var(--blue-bright); font-weight:600; }
+  .hero h1 { font-size:clamp(34px,5.5vw,58px); font-weight:900; line-height:1.06; margin-bottom:20px; color:#fff; }
+  .hero h1 span { color:var(--blue-bright); }
+  .hero p { font-size:17px; color:var(--offwhite); margin-bottom:36px; line-height:1.7; opacity:0.9; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-trust { display:flex; gap:24px; margin-top:36px; flex-wrap:wrap; }
+  .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
+  .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
+  .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }
+
 </style>
 </head>
 <body>
@@ -272,10 +321,10 @@ section{padding:80px 0;}
 <section class="hero">
     <div class="hero-bg">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide active" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAF9KrjrDs_kqZl-9lhh-igNQ-dMCewYKWaEwtDb94Ktd1xD7BF5HcPwCB3gXdcWFEGjJKoaLUN02Xfezg3Nrw4NWO0ulLqZbMyZKrJmJOBb40oyxbx8FrGFJQUQTUOG8XSfn39Q=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHYDfht-JNp5lv8NSJTb3dStCJF49jQMf89GKkIiCwv5UP8pBVdmeXKc5wWyYYUq2BBdKPP6FaRaJSNHfThv0f8ikFRgY_5s5Qpt2EctjSODehaX7WXf2oKqXau1dsiOBUArSWg_Q=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAERPsnMqX-hIql7Tm6T48mdfQt8Q9mCxaRm7Lw8rKpudMnypg8aei12kR2Zm0i7sy7mbMf6f_ZatgHVm0__0bB1mOBDBGWeea5vMFTG-MzwunNO3GCEkVC07NFmvFB0EfDPiCnfyA=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn3WKVXu-QJW2tEaSJhICtN1inXIgENWeC-oToP8hTzgK7psBp2uWEstCyS4FvljlPpXb0MIxg8iSPEBptdjXVzCxrwBDeIkyG2xwlzDVe8z62VQr_-0IVi51TKnRXk9ZuNiP_TxWg=w1600-h1200-k-no');"></div>
   </div>
   <div class="hero-overlay"></div>
   </div>
@@ -360,7 +409,7 @@ section{padding:80px 0;}
     <div class="industries-grid">
       <div class="industry-card fade-in delay-1">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Office painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="Office painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Offices &amp; Professional Spaces</div>
@@ -369,7 +418,7 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-2">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop" alt="Retail space painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3Z7pPOZzWw4UERXFbRnz8CMCPJMo-SB14d9_MmCymnn_o3wBwNGkKvhA8uyQiR2l41LtbPR529PjgE7SuqLtlfGDs0LOHMV5J4_KtHdb-DI4fQHohoYvyGlJBZNacNaTqGn4BZVNVgJ0E=w900-h1200-k-no" alt="Retail space painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Retail &amp; Storefronts</div>
@@ -378,7 +427,7 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-3">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80&auto=format&fit=crop" alt="Restaurant painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGv7FEWJjAFU4cCY_5fAPCK_2aKFolQh-kVgMOQcGYza-02SI45woKNUs7z7BF6ZWlECCk3mpfW33IjqHsa2fEhL60R5TCBoxKu5r3OiNc2jsEwMybdGw9vTd6f3qYWFKErXhQChg=w900-h1200-k-no" alt="Restaurant painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Restaurants &amp; Food Service</div>
@@ -387,7 +436,7 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-1">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80&auto=format&fit=crop" alt="Industrial painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3WKVXu-QJW2tEaSJhICtN1inXIgENWeC-oToP8hTzgK7psBp2uWEstCyS4FvljlPpXb0MIxg8iSPEBptdjXVzCxrwBDeIkyG2xwlzDVe8z62VQr_-0IVi51TKnRXk9ZuNiP_TxWg=w1600-h1200-k-no" alt="Industrial painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Warehouses &amp; Industrial</div>
@@ -396,7 +445,7 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-2">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80&auto=format&fit=crop" alt="Multi-unit apartment painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2awnVgXowhs3GOjMWT9CGwTebDHK-wLdgPrq_vDYa8fkUdcnyUNYvnIxk9Tp7lkd78AhKM6vMZ6MqgmcMp2kOf3_88qIkXeRSrwQ4CYBrY6XOItgG2TgmbLxWTzLvSWPMXVu4G=w1600-h1200-k-no" alt="Multi-unit apartment painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Multi-Unit &amp; Apartment Properties</div>
@@ -405,7 +454,7 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-3">
         <div class="industry-img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&auto=format&fit=crop" alt="Healthcare painting Dubuque Iowa" loading="lazy">
+          <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no" alt="Healthcare painting Dubuque Iowa" loading="lazy">
         </div>
         <div class="industry-body">
           <div class="industry-title">Healthcare &amp; Medical Offices</div>

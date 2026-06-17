@@ -32,11 +32,11 @@ section{padding:80px 0;}
 
 
 .hero{height:500px;position:relative;}
-.hero-slides{position:absolute;inset:0;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;animation:kenBurns 12s ease-in-out infinite alternate;}
-.hero-slide.active{opacity:0.4;}
-.hero-slide:nth-child(2){animation-delay:-4s;}.hero-slide:nth-child(3){animation-delay:-8s;}.hero-slide:nth-child(4){animation-delay:-12s;}
-@keyframes kenBurns{0%{transform:scale(1);}50%{transform:scale(1.08) translate(-0.5%,-0.5%);}100%{transform:scale(1.04) translate(0.5%,0%);}}
+
+
+
+
+50%{transform:scale(1.08) translate(-0.5%,-0.5%);}100%{transform:scale(1.04) translate(0.5%,0%);}}
 .hero-bg { position:absolute; inset:0; overflow:hidden; z-index:0; }
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,16,0.7) 0%,rgba(5,8,16,0.88) 100%);}
 .hero-content{position:relative; z-index:2;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%;padding:0 40px;}
@@ -206,6 +206,55 @@ section{padding:80px 0;}
   }
 
   html { scroll-padding-top: 88px; }
+
+  /* ── HERO (single source of truth) ── */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    padding: 130px 0 90px;
+    background: var(--black2);
+  }
+  .hero-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+  .hero-slides { position:absolute; inset:0; }
+  .hero-slide {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.4s ease-in-out;
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  .hero-slide.active { opacity:0.42; }
+  .hero-slide:nth-child(2) { animation-delay:-4s; }
+  .hero-slide:nth-child(3) { animation-delay:-8s; }
+  .hero-slide:nth-child(4) { animation-delay:-12s; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translate(0%,0%); }
+    25%  { transform: scale(1.06) translate(-1%,0.5%); }
+    50%  { transform: scale(1.12) translate(-1.5%,-1%); }
+    75%  { transform: scale(1.08) translate(0.5%,-1.5%); }
+    100% { transform: scale(1.04) translate(1%,0%); }
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(105deg,
+      rgba(5,8,16,0.96) 0%,
+      rgba(5,8,16,0.82) 40%,
+      rgba(5,8,16,0.45) 70%,
+      rgba(5,8,16,0.15) 100%
+    );
+  }
+  .hero-content { position:relative; z-index:2; padding:0 60px; max-width:740px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(30,58,138,0.35); border:1px solid var(--blue-light); border-radius:50px; padding:7px 18px; margin-bottom:24px; }
+  .hero-badge-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+  .hero-badge-text { font-size:13px; color:var(--blue-bright); font-weight:600; }
+  .hero h1 { font-size:clamp(34px,5.5vw,58px); font-weight:900; line-height:1.06; margin-bottom:20px; color:#fff; }
+  .hero h1 span { color:var(--blue-bright); }
+  .hero p { font-size:17px; color:var(--offwhite); margin-bottom:36px; line-height:1.7; opacity:0.9; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-trust { display:flex; gap:24px; margin-top:36px; flex-wrap:wrap; }
+  .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
+  .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
+  .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }
+
 </style>
 </head>
 <body>
@@ -244,10 +293,10 @@ section{padding:80px 0;}
 <section class="hero">
     <div class="hero-bg">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85&auto=format&fit=crop');"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1600&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide active" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/grass-cs/ANxoTn3bWQMFbMAhBGnAwMkU4HNWBy8qnJAaGHYQT7XZ29ejLdkgpvZ-NZAcMAA3mSVY599oaZFdImOGeILWfnaz3QLL-yK9BAaDWwaTy-R72eXzrSfyVcicO4FTp4YqyoByR-Kkio6lY0cVsbsH=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZ3YPWFcnAp4qE0LzmQDpOu3F1eBYDrUh0gW7QsjVEoDjQSxOlBwpzgb0ce44uV80o4sXBw5UpxN6rWuvjddzkISr8DuydyrVEXOFZ2AvlCA3hX8-XW5H0XVl04hgczTDN9dSdZQ=w1600-h1200-k-no');"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAHbXx5_AVq7mGPt5MhkdoYlTKCzcRTCkVcPju-g_Sqk28q2RzddO3d8cpCCNyplGmeCV9nN_biVpscqG5h2qwHqOeyjTb6da0Kic8HQL6M5nms0JYljdVb5krvZMMBIgbWn6eIo=w1600-h1200-k-no');"></div>
   </div>
   <div class="hero-overlay"></div>
   </div>
@@ -270,9 +319,9 @@ section{padding:80px 0;}
       <p style="color:var(--muted);font-size:16px;margin-top:16px;">This is what a proper prep job and premium paint looks like when it's done right.</p>
     </div>
     <div class="ba-wrap" id="baSlider">
-      <img class="ba-after-img" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1200&q=85&auto=format&fit=crop" alt="After painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
+      <img class="ba-after-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="After painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
       <div class="ba-before-layer" id="baLayer">
-        <img class="ba-before-img" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=85&auto=format&fit=crop" alt="Before painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
+        <img class="ba-before-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3Z7pPOZzWw4UERXFbRnz8CMCPJMo-SB14d9_MmCymnn_o3wBwNGkKvhA8uyQiR2l41LtbPR529PjgE7SuqLtlfGDs0LOHMV5J4_KtHdb-DI4fQHohoYvyGlJBZNacNaTqGn4BZVNVgJ0E=w900-h1200-k-no" alt="Before painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
         <span class="ba-label before">Before</span>
       </div>
       <div class="ba-handle">&#8596;</div>
@@ -299,65 +348,65 @@ section{padding:80px 0;}
     <div class="gallery-grid" id="galleryGrid">
       <!-- Interior photos -->
       <div class="gallery-item fade-in delay-1" data-cat="interior">
-        <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=700&q=80&auto=format&fit=crop" alt="Interior painting Dubuque Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGv7FEWJjAFU4cCY_5fAPCK_2aKFolQh-kVgMOQcGYza-02SI45woKNUs7z7BF6ZWlECCk3mpfW33IjqHsa2fEhL60R5TCBoxKu5r3OiNc2jsEwMybdGw9vTd6f3qYWFKErXhQChg=w900-h1200-k-no" alt="Interior painting Dubuque Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Interior</div>
       </div>
       <div class="gallery-item fade-in delay-2" data-cat="interior">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=700&q=80&auto=format&fit=crop" alt="Interior painting living room Dubuque" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3WKVXu-QJW2tEaSJhICtN1inXIgENWeC-oToP8hTzgK7psBp2uWEstCyS4FvljlPpXb0MIxg8iSPEBptdjXVzCxrwBDeIkyG2xwlzDVe8z62VQr_-0IVi51TKnRXk9ZuNiP_TxWg=w1600-h1200-k-no" alt="Interior painting living room Dubuque" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Interior</div>
       </div>
       <div class="gallery-item fade-in delay-3" data-cat="interior">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80&auto=format&fit=crop" alt="Interior painting bedroom Dubuque" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2awnVgXowhs3GOjMWT9CGwTebDHK-wLdgPrq_vDYa8fkUdcnyUNYvnIxk9Tp7lkd78AhKM6vMZ6MqgmcMp2kOf3_88qIkXeRSrwQ4CYBrY6XOItgG2TgmbLxWTzLvSWPMXVu4G=w1600-h1200-k-no" alt="Interior painting bedroom Dubuque" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Interior</div>
       </div>
       <!-- Exterior photos -->
       <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop" alt="Exterior painting Dubuque Iowa house" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no" alt="Exterior painting Dubuque Iowa house" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Exterior</div>
       </div>
       <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=700&q=80&auto=format&fit=crop" alt="Exterior house painting Dubuque Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3bWQMFbMAhBGnAwMkU4HNWBy8qnJAaGHYQT7XZ29ejLdkgpvZ-NZAcMAA3mSVY599oaZFdImOGeILWfnaz3QLL-yK9BAaDWwaTy-R72eXzrSfyVcicO4FTp4YqyoByR-Kkio6lY0cVsbsH=w1600-h1200-k-no" alt="Exterior house painting Dubuque Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Exterior</div>
       </div>
       <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80&auto=format&fit=crop" alt="Exterior siding painting Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZ3YPWFcnAp4qE0LzmQDpOu3F1eBYDrUh0gW7QsjVEoDjQSxOlBwpzgb0ce44uV80o4sXBw5UpxN6rWuvjddzkISr8DuydyrVEXOFZ2AvlCA3hX8-XW5H0XVl04hgczTDN9dSdZQ=w1600-h1200-k-no" alt="Exterior siding painting Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Exterior</div>
       </div>
       <!-- Cabinet photos -->
       <div class="gallery-item fade-in delay-1" data-cat="cabinets">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80&auto=format&fit=crop" alt="Cabinet painting Dubuque Iowa kitchen" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHbXx5_AVq7mGPt5MhkdoYlTKCzcRTCkVcPju-g_Sqk28q2RzddO3d8cpCCNyplGmeCV9nN_biVpscqG5h2qwHqOeyjTb6da0Kic8HQL6M5nms0JYljdVb5krvZMMBIgbWn6eIo=w1600-h1200-k-no" alt="Cabinet painting Dubuque Iowa kitchen" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
       <div class="gallery-item fade-in delay-2" data-cat="cabinets">
-        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=700&q=80&auto=format&fit=crop" alt="Kitchen cabinet refinishing Dubuque Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF9KrjrDs_kqZl-9lhh-igNQ-dMCewYKWaEwtDb94Ktd1xD7BF5HcPwCB3gXdcWFEGjJKoaLUN02Xfezg3Nrw4NWO0ulLqZbMyZKrJmJOBb40oyxbx8FrGFJQUQTUOG8XSfn39Q=w1600-h1200-k-no" alt="Kitchen cabinet refinishing Dubuque Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
       <div class="gallery-item fade-in delay-3" data-cat="cabinets">
-        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=700&q=80&auto=format&fit=crop" alt="Cabinet painting Dubuque Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHYDfht-JNp5lv8NSJTb3dStCJF49jQMf89GKkIiCwv5UP8pBVdmeXKc5wWyYYUq2BBdKPP6FaRaJSNHfThv0f8ikFRgY_5s5Qpt2EctjSODehaX7WXf2oKqXau1dsiOBUArSWg_Q=w1600-h1200-k-no" alt="Cabinet painting Dubuque Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
       <!-- Commercial photos -->
       <div class="gallery-item fade-in delay-1" data-cat="commercial">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80&auto=format&fit=crop" alt="Commercial painting Dubuque Iowa office" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAERPsnMqX-hIql7Tm6T48mdfQt8Q9mCxaRm7Lw8rKpudMnypg8aei12kR2Zm0i7sy7mbMf6f_ZatgHVm0__0bB1mOBDBGWeea5vMFTG-MzwunNO3GCEkVC07NFmvFB0EfDPiCnfyA=w1600-h1200-k-no" alt="Commercial painting Dubuque Iowa office" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Commercial</div>
       </div>
       <div class="gallery-item fade-in delay-2" data-cat="commercial">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80&auto=format&fit=crop" alt="Commercial painting Dubuque Iowa retail" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="Commercial painting Dubuque Iowa retail" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Commercial</div>
       </div>
       <div class="gallery-item fade-in delay-3" data-cat="interior">
-        <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?w=700&q=80&auto=format&fit=crop" alt="Interior painting Dubuque Iowa" loading="lazy">
+        <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3Z7pPOZzWw4UERXFbRnz8CMCPJMo-SB14d9_MmCymnn_o3wBwNGkKvhA8uyQiR2l41LtbPR529PjgE7SuqLtlfGDs0LOHMV5J4_KtHdb-DI4fQHohoYvyGlJBZNacNaTqGn4BZVNVgJ0E=w900-h1200-k-no" alt="Interior painting Dubuque Iowa" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-tag">Interior</div>
       </div>

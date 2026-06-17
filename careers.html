@@ -123,6 +123,55 @@
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .perks-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── HERO (single source of truth) ── */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    padding: 130px 0 90px;
+    background: var(--black2);
+  }
+  .hero-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+  .hero-slides { position:absolute; inset:0; }
+  .hero-slide {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.4s ease-in-out;
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  .hero-slide.active { opacity:0.42; }
+  .hero-slide:nth-child(2) { animation-delay:-4s; }
+  .hero-slide:nth-child(3) { animation-delay:-8s; }
+  .hero-slide:nth-child(4) { animation-delay:-12s; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translate(0%,0%); }
+    25%  { transform: scale(1.06) translate(-1%,0.5%); }
+    50%  { transform: scale(1.12) translate(-1.5%,-1%); }
+    75%  { transform: scale(1.08) translate(0.5%,-1.5%); }
+    100% { transform: scale(1.04) translate(1%,0%); }
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(105deg,
+      rgba(5,8,16,0.96) 0%,
+      rgba(5,8,16,0.82) 40%,
+      rgba(5,8,16,0.45) 70%,
+      rgba(5,8,16,0.15) 100%
+    );
+  }
+  .hero-content { position:relative; z-index:2; padding:0 60px; max-width:740px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(30,58,138,0.35); border:1px solid var(--blue-light); border-radius:50px; padding:7px 18px; margin-bottom:24px; }
+  .hero-badge-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+  .hero-badge-text { font-size:13px; color:var(--blue-bright); font-weight:600; }
+  .hero h1 { font-size:clamp(34px,5.5vw,58px); font-weight:900; line-height:1.06; margin-bottom:20px; color:#fff; }
+  .hero h1 span { color:var(--blue-bright); }
+  .hero p { font-size:17px; color:var(--offwhite); margin-bottom:36px; line-height:1.7; opacity:0.9; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-trust { display:flex; gap:24px; margin-top:36px; flex-wrap:wrap; }
+  .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
+  .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
+  .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }
+
 </style>
 </head>
 <body>
@@ -159,7 +208,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=80&auto=format&fit=crop" alt="Painter at work">
+    <img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="Painter at work">
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
