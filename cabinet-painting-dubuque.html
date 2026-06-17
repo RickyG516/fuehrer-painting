@@ -38,7 +38,7 @@ section{padding:80px 0;}
 
 
 
-.hero{height:620px;position:relative;overflow:hidden;}
+.hero{height:620px;position:relative;overflow:hidden;; display:flex; align-items:center;}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;animation:kenBurns 12s ease-in-out infinite alternate;}
 .hero-slide.active{opacity:0.45;}
@@ -47,7 +47,7 @@ section{padding:80px 0;}
 .hero-slide:nth-child(4){animation-delay:-12s;}
 @keyframes kenBurns{0%{transform:scale(1) translate(0%,0%);}25%{transform:scale(1.06) translate(-1%,0.5%);}50%{transform:scale(1.12) translate(-1.5%,-1%);}75%{transform:scale(1.08) translate(0.5%,-1.5%);}100%{transform:scale(1.04) translate(1%,0%);}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(115deg,rgba(5,8,16,0.97) 0%,rgba(5,8,16,0.88) 35%,rgba(5,8,16,0.55) 60%,rgba(5,8,16,0.15) 100%);}
-.hero-content{position:absolute;top:50%;left:0;transform:translateY(-50%);padding:0 60px;max-width:740px;}
+.hero-content{position:relative; z-index:2; left:0;padding:0 60px;max-width:740px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(30,58,138,0.35);border:1px solid var(--blue-light);border-radius:50px;padding:7px 18px;margin-bottom:24px;}
 .hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;}
 .hero-badge-text{font-size:13px;color:var(--blue-bright);font-weight:600;}
@@ -263,12 +263,6 @@ section{padding:80px 0;}
   }
 
   html { scroll-padding-top: 88px; }
-
-  /* Prevent hero-content clipping behind sticky nav */
-  .hero-content { padding-top: 20px; }
-  @media (max-height: 700px) {
-    .hero-content { padding-top: 40px; top: 55%; }
-  }
 </style>
 </head>
 <body>
