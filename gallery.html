@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painting Gallery | Before & After Photos | Fuehrer Painting LLC Dubuque IA</title>
+<meta name="description" content="Browse Fuehrer Painting's project gallery — before & after transformations across interior, exterior, cabinet, and commercial painting in Dubuque, Iowa.">
+<meta name="keywords" content="Fuehrer Painting gallery, painting before after Dubuque, painting photos Dubuque Iowa, cabinet painting before after, interior painting Dubuque photos">
+<link rel="canonical" href="https://fuehrerpaintingllc.com/gallery.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--blue:#2B35AF;--blue-mid:#2B35AF;--blue-light:#4a90d9;--blue-bright:#60a5fa;--black:#050810;--black2:#0c1220;--black3:#111827;--black4:#1e2a3a;--border:#2B35AF44;--white:#ffffff;--offwhite:#e8f0fe;--muted:#94a3b8;--radius:10px;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1140px;margin:0 auto;padding:0 20px;}
+.btn-primary{display:inline-block;background:var(--blue-mid);color:#fff;font-weight:700;padding:14px 28px;border-radius:var(--radius);font-size:15px;cursor:pointer;border:2px solid var(--blue-light);transition:all 0.2s;}
+.btn-primary:hover{background:var(--blue);border-color:var(--blue-bright);}
+.btn-outline{display:inline-block;border:2px solid var(--white);color:var(--white);font-weight:700;padding:12px 26px;border-radius:var(--radius);font-size:15px;cursor:pointer;background:transparent;transition:all 0.2s;}
+.btn-outline:hover{background:rgba(255,255,255,0.12);}
+section{padding:80px 0;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:12px;}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px;color:var(--white);position:relative;display:inline-block;}
+.section-title::after{content:'';display:block;width:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-bright));border-radius:4px;margin-top:10px;transition:width 0.9s cubic-bezier(0.16,1,0.3,1);box-shadow:0 0 12px rgba(43,53,175,0.5);}
+.section-title.paint-line::after{width:100%;}
+nav{background:var(--black2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--offwhite);font-size:14px;font-weight:500;transition:color 0.15s;}
+.nav-links a:hover{color:var(--blue-bright);}
+.nav-cta{background:var(--blue-mid)!important;color:#fff!important;font-weight:700!important;padding:10px 22px;border-radius:8px;border:1px solid var(--blue-light)!important;}
+.hero{height:500px;position:relative;overflow:hidden;}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;animation:kenBurns 12s ease-in-out infinite alternate;}
+.hero-slide.active{opacity:0.4;}
+.hero-slide:nth-child(2){animation-delay:-4s;}.hero-slide:nth-child(3){animation-delay:-8s;}.hero-slide:nth-child(4){animation-delay:-12s;}
+@keyframes kenBurns{0%{transform:scale(1);}50%{transform:scale(1.08) translate(-0.5%,-0.5%);}100%{transform:scale(1.04) translate(0.5%,0%);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,16,0.7) 0%,rgba(5,8,16,0.88) 100%);}
+.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:100%;padding:0 40px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(30,58,138,0.35);border:1px solid var(--blue-light);border-radius:50px;padding:7px 18px;margin-bottom:24px;}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;}
+.hero-badge-text{font-size:13px;color:var(--blue-bright);font-weight:600;}
+.hero h1{font-size:clamp(36px,6vw,62px);font-weight:900;line-height:1.05;margin-bottom:16px;color:#fff;}
+.hero h1 span{background:linear-gradient(90deg,#60a5fa,#a78bfa,#60a5fa);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;}
+@keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+.hero p{font-size:17px;color:var(--offwhite);opacity:0.9;max-width:560px;margin:0 auto;}
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1),transform 0.75s cubic-bezier(0.16,1,0.3,1);}
+.fade-in.visible{opacity:1;transform:none;}
+.fade-in.delay-1{transition-delay:0.1s;}.fade-in.delay-2{transition-delay:0.22s;}.fade-in.delay-3{transition-delay:0.34s;}
+.ba-wrap{position:relative;overflow:hidden;border-radius:16px;cursor:ew-resize;user-select:none;touch-action:none;box-shadow:0 8px 40px rgba(0,0,0,0.6);}
+.ba-after-img{display:block;width:100%;height:480px;object-fit:cover;pointer-events:none;}
+.ba-before-layer{position:absolute;top:0;left:0;bottom:0;overflow:hidden;width:50%;border-right:3px solid var(--blue-bright);}
+.ba-before-img{display:block;width:100vw;max-width:100%;height:480px;object-fit:cover;pointer-events:none;}
+.ba-handle{position:absolute;top:50%;right:-22px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--blue);border:3px solid var(--blue-bright);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:0 4px 20px rgba(43,53,175,0.7);z-index:10;}
+.ba-label{position:absolute;top:16px;background:rgba(5,8,16,0.75);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:50px;text-transform:uppercase;border:1px solid var(--border);}
+.ba-label.before{left:16px;}.ba-label.after{right:16px;}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.filter-btn{background:var(--black4);border:1px solid var(--border);border-radius:50px;padding:9px 22px;font-size:14px;font-weight:600;color:var(--offwhite);cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover,.filter-btn.active{background:var(--blue);border-color:var(--blue-light);color:#fff;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
+.gallery-item{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--black4);border:1px solid var(--border);cursor:pointer;transition:all 0.25s;}
+.gallery-item:hover{border-color:var(--blue-light);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.5);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+.gallery-item:hover img{transform:scale(1.05);}
+.gallery-tag{position:absolute;bottom:12px;left:12px;background:rgba(5,8,16,0.82);border:1px solid var(--border);border-radius:50px;padding:5px 14px;font-size:12px;font-weight:700;color:var(--offwhite);backdrop-filter:blur(6px);}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,8,16,0.7) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.placeholder-item{background:var(--black4);border:2px dashed var(--border);border-radius:14px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:all 0.2s;cursor:pointer;}
+.placeholder-item:hover{border-color:var(--blue-bright);}
+.ph-icon{font-size:36px;margin-bottom:12px;opacity:0.5;}
+.ph-label{font-size:14px;font-weight:700;color:var(--muted);margin-bottom:6px;}
+.ph-sub{font-size:12px;color:#4b5563;line-height:1.5;}
+.add-photos-note{background:linear-gradient(135deg,rgba(43,53,175,0.12),var(--black4));border:1px solid var(--blue);border-radius:16px;padding:36px;text-align:center;margin-top:32px;}
+.cta-section{background:linear-gradient(135deg,var(--black2) 0%,var(--black4) 50%,var(--black2) 100%);border-top:1px solid var(--border);text-align:center;padding:100px 0;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(43,53,175,0.15) 0%,transparent 70%);pointer-events:none;}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+footer{background:var(--black2);border-top:1px solid var(--border);padding:52px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.footer-tagline{color:var(--muted);font-size:14px;line-height:1.7;max-width:280px;}
+.footer-col-title{font-weight:700;font-size:13px;color:var(--white);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em;}
+.footer-links{display:flex;flex-direction:column;gap:8px;}
+.footer-links a{color:var(--muted);font-size:14px;transition:color 0.15s;}
+.footer-links a:hover{color:var(--blue-bright);}
+.footer-contact-item{color:var(--muted);font-size:14px;margin-bottom:6px;}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy,.footer-powered{color:#374151;font-size:12px;}
+@media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="Fuehrer Painting LLC" style="height:56px;width:auto;"></a></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="interior-painting-dubuque.html">Interior</a>
+        <a href="exterior-painting-dubuque.html">Exterior</a>
+        <a href="cabinet-painting-dubuque.html">Cabinets</a>
+        <a href="commercial-painting-dubuque.html">Commercial</a>
+        <a href="gallery.html" style="color:var(--blue-bright);">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">&#128222; (563) 213-4418</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1600&q=85&auto=format&fit=crop');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge" style="margin:0 auto 24px;">
+      <span class="hero-badge-dot"></span>
+      <span class="hero-badge-text">Real Projects. Real Results.</span>
+    </div>
+    <h1>The Work Speaks<br><span>for Itself</span></h1>
+    <p>Before and after transformations across interior, exterior, cabinet, and commercial projects in Dubuque and the tri-state area.</p>
+  </div>
+</section>
+
+<!-- FEATURED BA SLIDER -->
+<section style="background:var(--black2);padding:80px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;" class="fade-in">
+      <div class="section-label">Featured Transformation</div>
+      <h2 class="section-title">Drag the Slider — See the Difference</h2>
+      <p style="color:var(--muted);font-size:16px;margin-top:16px;">This is what a proper prep job and premium paint looks like when it's done right.</p>
+    </div>
+    <div class="ba-wrap" id="baSlider">
+      <img class="ba-after-img" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1200&q=85&auto=format&fit=crop" alt="After painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
+      <div class="ba-before-layer" id="baLayer">
+        <img class="ba-before-img" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=85&auto=format&fit=crop" alt="Before painting Dubuque Iowa - Fuehrer Painting" loading="lazy">
+        <span class="ba-label before">Before</span>
+      </div>
+      <div class="ba-handle">&#8596;</div>
+      <span class="ba-label after">After</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY GRID -->
+<section style="background:var(--black);padding:80px 0;">
+  <div class="container">
+    <div style="margin-bottom:40px;" class="fade-in">
+      <div class="section-label">Project Gallery</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Browse Our Work</h2>
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="interior">Interior</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="cabinets">Cabinets</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+      </div>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Interior photos -->
+      <div class="gallery-item fade-in delay-1" data-cat="interior">
+        <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=700&q=80&auto=format&fit=crop" alt="Interior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Interior</div>
+      </div>
+      <div class="gallery-item fade-in delay-2" data-cat="interior">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=700&q=80&auto=format&fit=crop" alt="Interior painting living room Dubuque" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Interior</div>
+      </div>
+      <div class="gallery-item fade-in delay-3" data-cat="interior">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80&auto=format&fit=crop" alt="Interior painting bedroom Dubuque" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Interior</div>
+      </div>
+      <!-- Exterior photos -->
+      <div class="gallery-item fade-in delay-1" data-cat="exterior">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop" alt="Exterior painting Dubuque Iowa house" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Exterior</div>
+      </div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior">
+        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=700&q=80&auto=format&fit=crop" alt="Exterior house painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Exterior</div>
+      </div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80&auto=format&fit=crop" alt="Exterior siding painting Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Exterior</div>
+      </div>
+      <!-- Cabinet photos -->
+      <div class="gallery-item fade-in delay-1" data-cat="cabinets">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80&auto=format&fit=crop" alt="Cabinet painting Dubuque Iowa kitchen" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Cabinets</div>
+      </div>
+      <div class="gallery-item fade-in delay-2" data-cat="cabinets">
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=700&q=80&auto=format&fit=crop" alt="Kitchen cabinet refinishing Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Cabinets</div>
+      </div>
+      <div class="gallery-item fade-in delay-3" data-cat="cabinets">
+        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=700&q=80&auto=format&fit=crop" alt="Cabinet painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Cabinets</div>
+      </div>
+      <!-- Commercial photos -->
+      <div class="gallery-item fade-in delay-1" data-cat="commercial">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80&auto=format&fit=crop" alt="Commercial painting Dubuque Iowa office" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Commercial</div>
+      </div>
+      <div class="gallery-item fade-in delay-2" data-cat="commercial">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80&auto=format&fit=crop" alt="Commercial painting Dubuque Iowa retail" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Commercial</div>
+      </div>
+      <div class="gallery-item fade-in delay-3" data-cat="interior">
+        <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?w=700&q=80&auto=format&fit=crop" alt="Interior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-tag">Interior</div>
+      </div>
+    </div>
+
+    <!-- ADD PHOTOS NOTE FOR MARK -->
+    <div class="add-photos-note fade-in" style="margin-top:48px;">
+      <div style="font-size:36px;margin-bottom:12px;">&#128247;</div>
+      <h3 style="font-size:20px;font-weight:700;margin-bottom:10px;">Mark &#8212; Add Your Real Project Photos Here</h3>
+      <p style="color:var(--muted);font-size:15px;max-width:580px;margin:0 auto 16px;line-height:1.7;">Upload your before/after photos to the <strong style="color:var(--offwhite);">images/gallery/</strong> folder in the GitHub repo, then replace the Unsplash URLs above with your real photo paths. Each photo should be named clearly: <code style="background:var(--black3);padding:2px 8px;border-radius:4px;font-size:13px;">gallery-interior-01.jpg</code>, <code style="background:var(--black3);padding:2px 8px;border-radius:4px;font-size:13px;">gallery-cabinet-before-01.jpg</code>, etc.</p>
+      <a href="contact.html" class="btn-primary">In the Meantime — Get an Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label" style="text-align:center;">Like What You See?</div>
+      <h2 style="font-size:clamp(32px,5vw,52px);font-weight:900;margin-bottom:16px;">Get Results Like These on Your Home</h2>
+      <p style="font-size:17px;color:var(--muted);max-width:540px;margin:0 auto 40px;line-height:1.7;">Free estimates. Honest pricing. Work that speaks for itself — just like the projects in this gallery.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary" style="font-size:16px;padding:16px 36px;">Request Free Estimate</a>
+        <a href="tel:5632134418" class="btn-outline" style="font-size:16px;padding:16px 36px;">&#128222; (563) 213-4418</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/logo.png" alt="Fuehrer Painting LLC" style="height:64px;width:auto;margin-bottom:14px;display:block;"></div>
+        <div class="footer-tagline">Dubuque's trusted painting contractor since 2010. Licensed, insured, and backed by a 100% satisfaction guarantee on every job.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="interior-painting-dubuque.html">Interior Painting</a>
+          <a href="exterior-painting-dubuque.html">Exterior Painting</a>
+          <a href="cabinet-painting-dubuque.html">Cabinet Painting</a>
+          <a href="commercial-painting-dubuque.html">Commercial</a>
+          <a href="new-construction-painting-dubuque.html">New Construction</a>
+          <a href="staining-dubuque.html">Staining</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About Us</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">&#128222; (563) 213-4418</div>
+        <div class="footer-contact-item">&#9993;&#65039; fuehrerpaintingllc@gmail.com</div>
+        <div class="footer-contact-item">&#128205; Dubuque, Iowa</div>
+        <div class="footer-contact-item">&#128506;&#65039; Serving Tri-State Area</div>
+        <div class="footer-contact-item">&#9200; Mon&#8211;Sat 7am&#8211;6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&#169; 2026 Fuehrer Painting LLC. All rights reserved.</div>
+      <div class="footer-powered">Digital marketing by <a href="https://urbannicheco.com" style="color:var(--blue-bright);">Urban Niche Co.</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){var slides=document.querySelectorAll('.hero-slide');if(!slides.length)return;var cur=0;slides[0].classList.add('active');setInterval(function(){slides[cur].classList.remove('active');cur=(cur+1)%slides.length;slides[cur].classList.add('active');},5000);})();
+(function(){var els=document.querySelectorAll('.fade-in');if(!els.length)return;var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});els.forEach(function(el){io.observe(el);});})();
+(function(){var ts=document.querySelectorAll('.section-title');var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('paint-line');});},{threshold:0.5});ts.forEach(function(t){io.observe(t);});})();
+(function(){var wrap=document.getElementById('baSlider');var layer=document.getElementById('baLayer');if(!wrap||!layer)return;var dragging=false;function setPos(x){var r=wrap.getBoundingClientRect();var pct=Math.max(5,Math.min(95,((x-r.left)/r.width)*100));layer.style.width=pct+'%';}wrap.addEventListener('mousedown',function(e){dragging=true;setPos(e.clientX);});window.addEventListener('mousemove',function(e){if(dragging)setPos(e.clientX);});window.addEventListener('mouseup',function(){dragging=false;});wrap.addEventListener('touchstart',function(e){dragging=true;setPos(e.touches[0].clientX);},{passive:true});window.addEventListener('touchmove',function(e){if(dragging)setPos(e.touches[0].clientX);},{passive:true});window.addEventListener('touchend',function(){dragging=false;});})();
+// Gallery filter
+(function(){
+  var btns=document.querySelectorAll('.filter-btn');
+  var items=document.querySelectorAll('.gallery-item[data-cat]');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var f=btn.getAttribute('data-filter');
+      items.forEach(function(item){
+        if(f==='all'||item.getAttribute('data-cat')===f){
+          item.style.display='';
+          item.style.opacity='1';
+        }else{
+          item.style.opacity='0';
+          item.style.display='none';
+        }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
