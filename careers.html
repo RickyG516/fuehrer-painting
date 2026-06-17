@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers | Fuehrer Painting LLC – Hiring Painters in Dubuque, IA</title>
+<meta name="description" content="Join the Fuehrer Painting team. We're always hiring motivated painters who take pride in their work. Apply today in Dubuque, Iowa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #2B35AF;
+    --blue-bright: #60a5fa;
+    --blue-light: rgba(43,53,175,0.4);
+    --black: #050810;
+    --black2: #090d1a;
+    --black3: #0d1220;
+    --offwhite: #e8f0fe;
+    --gray: #94a3b8;
+  }
+  html { scroll-padding-top: 88px; }
+  body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--offwhite); line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+
+  /* ── NAV ── */
+  nav { background: #000000; border-bottom: 1px solid rgba(43,53,175,0.25); position: sticky; top: 0; z-index: 200; backdrop-filter: blur(16px); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .nav-logo-img { height: 70px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links > a, .nav-dropdown-toggle { color: #e8f0fe; font-size: 14px; font-weight: 500; transition: color 0.15s; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .nav-links > a:hover, .nav-dropdown-toggle:hover { color: #60a5fa; }
+  .nav-cta { background: #2B35AF !important; color: #fff !important; font-weight: 700 !important; padding: 10px 20px; border-radius: 8px; border: 1px solid #4a90d9; font-size: 14px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: #3d4fd4 !important; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-menu { display: block; visibility: hidden; opacity: 0; pointer-events: none; position: absolute; top: calc(100% + 8px); left: -16px; background: #060a14; border: 1px solid rgba(43,53,175,0.4); border-radius: 12px; padding: 8px 0; min-width: 210px; z-index: 300; box-shadow: 0 16px 48px rgba(0,0,0,0.7); transition: opacity 0.18s ease, visibility 0s linear 0.22s; }
+  .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown.open .nav-dropdown-menu { visibility: visible; opacity: 1; pointer-events: auto; transition: opacity 0.18s ease, visibility 0s linear 0s; }
+  .nav-dropdown-menu a { display: block; padding: 11px 20px; font-size: 14px; color: #e8f0fe; transition: background 0.15s; }
+  .nav-dropdown-menu a:hover { background: rgba(43,53,175,0.2); color: #60a5fa; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: #e8f0fe; border-radius: 2px; }
+
+  /* ── HERO ── */
+  .hero { position: relative; min-height: 520px; display: flex; align-items: center; padding: 80px 0 60px; }
+  .hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(5,8,16,0.97) 0%, rgba(5,8,16,0.85) 50%, rgba(5,8,16,0.5) 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 0 60px; max-width: 760px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(30,58,138,0.35); border: 1px solid var(--blue-light); border-radius: 50px; padding: 7px 18px; margin-bottom: 24px; }
+  .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+  .hero-badge-text { font-size: 13px; color: var(--blue-bright); font-weight: 600; }
+  .hero h1 { font-size: clamp(38px, 6vw, 66px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; color: #fff; }
+  .hero h1 span { color: var(--blue-bright); }
+  .hero p { font-size: 18px; color: var(--offwhite); margin-bottom: 36px; line-height: 1.7; opacity: 0.9; max-width: 580px; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff; font-weight: 700; font-size: 16px; padding: 15px 32px; border-radius: 10px; border: 1px solid rgba(96,165,250,0.3); transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: #3d4fd4; transform: translateY(-2px); }
+
+  /* ── WHY WORK HERE ── */
+  .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 52px; }
+  .perk-card { background: var(--black2); border: 1px solid rgba(43,53,175,0.2); border-radius: 16px; padding: 32px; transition: border-color 0.25s, transform 0.25s; }
+  .perk-card:hover { border-color: rgba(43,53,175,0.6); transform: translateY(-4px); }
+  .perk-icon { font-size: 36px; margin-bottom: 16px; }
+  .perk-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .perk-desc { font-size: 15px; color: var(--gray); line-height: 1.65; }
+
+  .section-label { font-size: 12px; font-weight: 700; color: var(--blue-bright); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: #fff; line-height: 1.15; }
+  .section-desc { font-size: 17px; color: var(--gray); margin-top: 16px; max-width: 600px; line-height: 1.7; }
+
+  /* ── WHAT WE LOOK FOR ── */
+  .look-for { background: var(--black2); }
+  .traits-list { margin-top: 40px; display: flex; flex-direction: column; gap: 18px; max-width: 680px; }
+  .trait { display: flex; gap: 20px; align-items: flex-start; }
+  .trait-check { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: rgba(43,53,175,0.25); border: 1px solid rgba(96,165,250,0.4); display: flex; align-items: center; justify-content: center; color: var(--blue-bright); font-weight: 800; font-size: 16px; margin-top: 2px; }
+  .trait-text { font-size: 16px; color: var(--offwhite); line-height: 1.6; }
+  .trait-text strong { color: #fff; }
+
+  /* ── PAY ── */
+  .pay-box { background: linear-gradient(135deg, rgba(43,53,175,0.2) 0%, rgba(43,53,175,0.05) 100%); border: 1px solid rgba(43,53,175,0.35); border-radius: 20px; padding: 48px; margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; text-align: center; }
+  .pay-item-num { font-size: 42px; font-weight: 900; color: #fff; }
+  .pay-item-label { font-size: 14px; color: var(--gray); margin-top: 6px; }
+
+  /* ── APPLY ── */
+  .apply-section { background: var(--black3); }
+  .apply-box { background: linear-gradient(135deg, rgba(43,53,175,0.15) 0%, rgba(43,53,175,0.03) 100%); border: 1px solid rgba(43,53,175,0.3); border-radius: 24px; padding: 56px 48px; max-width: 700px; margin: 52px auto 0; }
+  .apply-box h2 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+  .apply-box p { font-size: 16px; color: var(--gray); margin-bottom: 32px; line-height: 1.7; }
+  .apply-form { display: flex; flex-direction: column; gap: 16px; }
+  .apply-form input, .apply-form select, .apply-form textarea { background: rgba(255,255,255,0.04); border: 1px solid rgba(43,53,175,0.3); border-radius: 10px; padding: 14px 18px; font-size: 15px; color: #fff; font-family: inherit; width: 100%; transition: border-color 0.2s; }
+  .apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus { outline: none; border-color: rgba(96,165,250,0.6); }
+  .apply-form input::placeholder, .apply-form textarea::placeholder { color: #4b5563; }
+  .apply-form select option { background: #090d1a; }
+  .apply-form textarea { resize: vertical; min-height: 120px; }
+  .apply-submit { background: var(--blue); color: #fff; font-weight: 700; font-size: 16px; padding: 15px; border: none; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+  .apply-submit:hover { background: #3d4fd4; }
+  .apply-note { font-size: 13px; color: #4b5563; text-align: center; margin-top: 10px; }
+
+  /* ── FOOTER ── */
+  footer { background: #000000; border-top: 1px solid rgba(43,53,175,0.25); padding: 56px 0 24px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-logo-img { height: 80px; width: auto; display: block; margin-bottom: 16px; }
+  .footer-tagline { color: #94a3b8; font-size: 14px; line-height: 1.7; max-width: 280px; }
+  .footer-col-title { font-weight: 700; font-size: 12px; color: #fff; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .footer-links { display: flex; flex-direction: column; gap: 9px; }
+  .footer-links a { color: #94a3b8; font-size: 14px; transition: color 0.15s; }
+  .footer-links a:hover { color: #60a5fa; }
+  .footer-contact-item { color: #94a3b8; font-size: 14px; margin-bottom: 8px; }
+  .footer-bottom { border-top: 1px solid rgba(43,53,175,0.2); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { color: #374151; font-size: 12px; }
+  .footer-powered { font-size: 12px; color: #374151; }
+  .footer-powered a { color: #60a5fa; }
+
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #000; border-bottom: 1px solid rgba(43,53,175,0.3); padding: 20px; gap: 16px; align-items: flex-start; }
+    .nav-links.open { display: flex; }
+    .hero-content { padding: 0 24px; }
+    .pay-box { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
+    .apply-box { padding: 36px 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .perks-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="index.html"><img src="images/logo.png" alt="Fuehrer Painting LLC" class="nav-logo-img"></a>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-toggle">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="vertical-align:middle;margin-left:2px;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <div class="nav-dropdown-menu">
+            <a href="interior-painting-dubuque.html">🖌️ Interior Painting</a>
+            <a href="exterior-painting-dubuque.html">🏠 Exterior Painting</a>
+            <a href="commercial-painting-dubuque.html">🏢 Commercial</a>
+            <a href="cabinet-painting-dubuque.html">🪵 Cabinet Painting</a>
+            <a href="staining-dubuque.html">🪵 Staining</a>
+            <a href="new-construction-painting-dubuque.html">🏗️ New Construction</a>
+          </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="careers.html" style="color:#60a5fa;font-weight:600;">We're Hiring</a>
+        <a href="contact.html" class="nav-cta">📞 (563) 213-4418</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=80&auto=format&fit=crop" alt="Painter at work">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <div class="hero-badge-text">Now Hiring — Dubuque, Iowa</div>
+    </div>
+    <h1>We're Always<br><span>Looking for Good People</span></h1>
+    <p>If you take pride in your work, show up on time, and want to learn a trade that pays — we want to hear from you. No politics. No BS. Just hard work and fair pay.</p>
+    <a href="#apply" class="btn-primary">Apply Now →</a>
+  </div>
+</section>
+
+<!-- WHY WORK HERE -->
+<section>
+  <div class="container">
+    <div class="section-label">Why Fuehrer Painting</div>
+    <h2 class="section-title">A crew worth being part of</h2>
+    <p class="section-desc">We're a small, tight team and we want to keep it that way — quality over quantity. You'll work alongside Mark directly and learn from someone who's been doing this right for over a decade.</p>
+    <div class="perks-grid">
+      <div class="perk-card">
+        <div class="perk-icon">💰</div>
+        <div class="perk-title">Competitive Pay</div>
+        <div class="perk-desc">$15–$25/hr depending on experience. Reliable hours. Pay comes on time, every time — no games.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">📈</div>
+        <div class="perk-title">Room to Grow</div>
+        <div class="perk-desc">Show up, work hard, and you'll move up fast. We promote from within and reward people who take ownership.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🎓</div>
+        <div class="perk-title">Learn the Trade Right</div>
+        <div class="perk-desc">No experience? No problem — as long as you're motivated. We'll teach you surface prep, application, and finishing the professional way.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🤝</div>
+        <div class="perk-title">Respect on the Job</div>
+        <div class="perk-desc">You'll be treated like an adult. No micromanaging. Just clear expectations, real feedback, and a crew that has your back.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🏠</div>
+        <div class="perk-title">Local Work</div>
+        <div class="perk-desc">Based in Dubuque. Most jobs are within 30 minutes. You're home at a decent hour — nights and weekends when we can avoid it.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">⭐</div>
+        <div class="perk-title">Work You're Proud Of</div>
+        <div class="perk-desc">We don't cut corners. When you finish a room or a house, it looks right and the homeowner knows it. That feeling matters.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE LOOK FOR -->
+<section class="look-for">
+  <div class="container">
+    <div class="section-label">What We Look For</div>
+    <h2 class="section-title">The right person matters more than the resume</h2>
+    <p class="section-desc">We can teach painting. We can't teach character. Here's what we actually care about:</p>
+    <div class="traits-list">
+      <div class="trait">
+        <div class="trait-check">✓</div>
+        <div class="trait-text"><strong>You show up.</strong> On time. Ready to work. Every day. That's 90% of it.</div>
+      </div>
+      <div class="trait">
+        <div class="trait-check">✓</div>
+        <div class="trait-text"><strong>You take pride in your work.</strong> You care whether it looks right, not just whether it looks done.</div>
+      </div>
+      <div class="trait">
+        <div class="trait-check">✓</div>
+        <div class="trait-text"><strong>You're coachable.</strong> You can take direction, ask questions, and get better at the trade over time.</div>
+      </div>
+      <div class="trait">
+        <div class="trait-check">✓</div>
+        <div class="trait-text"><strong>You respect the customer's home.</strong> Clean up after yourself. Be professional in how you talk to homeowners.</div>
+      </div>
+      <div class="trait">
+        <div class="trait-check">✓</div>
+        <div class="trait-text"><strong>You want more.</strong> You're not looking to coast — you want to build a real skill set and get paid for it.</div>
+      </div>
+    </div>
+    <div class="pay-box">
+      <div>
+        <div class="pay-item-num">$15–$25</div>
+        <div class="pay-item-label">Hourly Pay Range</div>
+      </div>
+      <div>
+        <div class="pay-item-num">Year-Round</div>
+        <div class="pay-item-label">Consistent Work</div>
+      </div>
+      <div>
+        <div class="pay-item-num">Day 1</div>
+        <div class="pay-item-label">Start Learning Fast</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply-section" id="apply">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label">Apply Now</div>
+      <h2 class="section-title">Take 2 minutes. We'll reach out fast.</h2>
+      <p class="section-desc" style="margin: 16px auto 0;">No long application. No HR. Just tell us a little about yourself and Mark will get back to you personally.</p>
+    </div>
+    <div class="apply-box">
+      <form class="apply-form" name="careers" method="POST" data-netlify="true" action="/contact.html">
+        <input type="hidden" name="form-name" value="careers">
+        <input type="text" name="name" placeholder="Your Name *" required>
+        <input type="tel" name="phone" placeholder="Phone Number *" required>
+        <input type="email" name="email" placeholder="Email Address">
+        <select name="experience">
+          <option value="" disabled selected>Experience Level</option>
+          <option>No experience — willing to learn</option>
+          <option>Some experience (1–2 years)</option>
+          <option>Experienced painter (3+ years)</option>
+          <option>Lead painter / crew foreman</option>
+        </select>
+        <textarea name="message" placeholder="Tell us a little about yourself — why do you want to work with us?"></textarea>
+        <button type="submit" class="apply-submit">Send Application →</button>
+        <p class="apply-note">Or text Mark directly: <a href="sms:5632134418" style="color:#60a5fa;">(563) 213-4418</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="images/logo.png" alt="Fuehrer Painting LLC" class="footer-logo-img">
+        <p class="footer-tagline">Dubuque's trusted painting contractor since 2010. Licensed, insured, and backed by a 100% satisfaction guarantee.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="interior-painting-dubuque.html">Interior Painting</a>
+          <a href="exterior-painting-dubuque.html">Exterior Painting</a>
+          <a href="cabinet-painting-dubuque.html">Cabinet Painting</a>
+          <a href="commercial-painting-dubuque.html">Commercial</a>
+          <a href="new-construction-painting-dubuque.html">New Construction</a>
+          <a href="staining-dubuque.html">Staining</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html" style="color:#60a5fa;">We're Hiring ↗</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">📞 <a href="tel:5632134418" style="color:inherit;">(563) 213-4418</a></div>
+        <div class="footer-contact-item">✉️ fuehrerpaintingllc@gmail.com</div>
+        <div class="footer-contact-item">📍 Dubuque, Iowa</div>
+        <div class="footer-contact-item">🗺️ Serving the Tri-State Area</div>
+        <div class="footer-contact-item">⏰ Mon–Sat 7am–6pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Fuehrer Painting LLC. All rights reserved.</div>
+      <div class="footer-powered">Digital marketing by <a href="https://urbannicheco.com">Urban Niche Co.</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('navHamburger');
+  var links = document.getElementById('navLinks');
+  if(btn && links) btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el){
+    el.addEventListener('click', function(e){
+      if(window.innerWidth <= 768){ e.preventDefault(); el.closest('.nav-dropdown').classList.toggle('open'); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

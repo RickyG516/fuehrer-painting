@@ -52,8 +52,9 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   
 
   /* HERO */
-  .hero { background: var(--black2); padding: 0; position: relative; overflow: hidden; }
+  .hero { background: var(--black2); padding: 0; position: relative; }
   .hero-photo { width: 100%; height: 520px; object-fit: cover; display: block; opacity: 0.35; }
+  .hero-bg { position:absolute; inset:0; overflow:hidden; z-index:0; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,16,0.97) 0%, rgba(5,8,16,0.75) 55%, rgba(5,8,16,0.2) 100%); }
   .hero-content { position:relative; z-index:2; left: 0; padding: 0 40px; max-width: 680px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(30,58,138,0.35); border: 1px solid var(--blue-light); border-radius: 50px; padding: 7px 18px; margin-bottom: 24px; }
@@ -68,7 +69,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   .hero-trust-item .check { color: var(--blue-bright); font-weight: 700; }
 
   /* TRUST BAR */
-  .trust-bar { background: var(--blue); padding: 22px 0; border-top: 1px solid var(--blue-light); border-bottom: 1px solid var(--blue-light); }
+  .trust-bar { position:relative; z-index:10;  background: var(--blue); padding: 22px 0; border-top: 1px solid var(--blue-light); border-bottom: 1px solid var(--blue-light); }
   .trust-bar-inner { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; text-align: center; }
   .trust-num { font-size: 28px; font-weight: 900; color: #fff; }
   .trust-lbl { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; }
@@ -163,7 +164,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     .form-grid, .footer-grid, .photo-grid { grid-template-columns: 1fr; gap: 32px; }
     .trust-div { display: none; }
     .hero-content { padding: 0 20px; max-width: 100%;  padding: 48px 20px; }
-    .hero { padding: 60px 20px !important; }
+    .hero { padding: 100px 20px 60px !important; }
     .hero-photo { height: 280px; position: absolute; top: 0; left: 0; width: 100%; }
     .hero-overlay { position: absolute; }
     .hero h1, h1 { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
@@ -175,7 +176,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   ============================================ */
 
   /* Ken Burns cycling hero */
-  .hero { height: 620px;; display:flex; align-items:center;}
+  .hero { min-height: 620px; display:flex; align-items:center; padding: 80px 0 60px; }
   .hero-slides { position: absolute; inset: 0; overflow: hidden; }
   .hero-slide {
     position: absolute; inset: 0;
@@ -458,6 +459,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
         </div>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
+        <a href="careers.html" style="color:#60a5fa;font-weight:600;">We're Hiring</a>
         <a href="contact.html" class="nav-cta">📞 (563) 213-4418</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
@@ -468,7 +470,8 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 </nav>
 
 <!-- HERO with real photo -->
-<section class="hero" style="padding:0; position:relative;">
+<section class="hero">
+    <div class="hero-bg">
   <div class="hero-slides" id="heroSlides">
   <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1600&q=85&auto=format&fit=crop')"></div>
   <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=85&auto=format&fit=crop')"></div>
@@ -476,6 +479,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop')"></div>
 </div>
   <div class="hero-overlay"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
@@ -642,32 +646,50 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
       <div class="section-title">What Dubuque Homeowners Say</div>
     </div>
     <div class="reviews-grid">
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"[REAL REVIEW 1 — Copy from Google Reviews before launch]"</div>
-        <div class="review-author">
-          <div class="review-avatar">?</div>
-          <div><div class="review-name">[Customer Name 1]</div><div class="review-loc">Dubuque, IA — Google Review</div></div>
-        </div>
-      </div>
-      <div class="review-card fade-in delay-1">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"[REAL REVIEW 2 — Copy from Google Reviews before launch]"</div>
-        <div class="review-author">
-          <div class="review-avatar">?</div>
-          <div><div class="review-name">[Customer Name 2]</div><div class="review-loc">Dubuque, IA — Google Review</div></div>
-        </div>
-      </div>
-      <div class="review-card fade-in delay-2">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"[REAL REVIEW 3 — Copy from Google Reviews before launch]"</div>
-        <div class="review-author">
-          <div class="review-avatar">?</div>
-          <div><div class="review-name">[Customer Name 3]</div><div class="review-loc">Dubuque, IA — Facebook Review</div></div>
-        </div>
+
+  <div class="review-card fade-in">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"Mark and his crew were phenomenal. Starting out with a reasonable bid, they were all personable, professional, and efficient, and made sure the rooms looked great every day. Would have them paint again and again!"</div>
+    <div class="review-author">
+      <div class="review-avatar">AB</div>
+      <div>
+        <div class="review-name">Adam Bartusewich</div>
+        <div class="review-source">Google Review</div>
       </div>
     </div>
   </div>
+
+  <div class="review-card fade-in delay-1">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"We are Sooo impressed with Mark, Mike, Jay and the crew! Took our faded shutters down, cleaned them, came back and power washed the house. The shutters are Beautiful — makes our 84-year-old home look brand new!!! HIGHLY RECOMMENDED."</div>
+    <div class="review-author">
+      <div class="review-avatar">PB</div>
+      <div>
+        <div class="review-name">Peggy Brekke</div>
+        <div class="review-source">Google Review · Local Guide</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card fade-in delay-2">
+    <div class="review-stars">★★★★★</div>
+    <div class="review-text">"We are very happy with Fuehrer Painting. They painted our shutters, doors and garage doors. The transformation of our home is amazing. We highly recommend Mark and the team."</div>
+    <div class="review-author">
+      <div class="review-avatar">JK</div>
+      <div>
+        <div class="review-name">Jean Kapparos</div>
+        <div class="review-source">Google Review</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="text-align:center;margin-top:36px;">
+  <a href="https://www.google.com/maps/place/Fuehrer+Painting+LLC" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:#60a5fa;font-size:14px;font-weight:600;border:1px solid rgba(96,165,250,0.3);padding:10px 22px;border-radius:8px;transition:background 0.2s;" onmouseover="this.style.background='rgba(96,165,250,0.08)'" onmouseout="this.style.background='none'">
+    ⭐ 4.5 stars · 17 Google reviews — Read them all →
+  </a>
+</div>
+</div>
 </section>
 
 <!-- FORM -->

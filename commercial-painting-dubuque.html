@@ -31,13 +31,14 @@ section{padding:80px 0;}
 
 
 
-.hero{height:640px;position:relative;overflow:hidden;}
+.hero{height:640px;position:relative;}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;animation:kenBurns 12s ease-in-out infinite alternate;}
 .hero-slide.active{opacity:0.4;}
 .hero-slide:nth-child(2){animation-delay:-4s;}.hero-slide:nth-child(3){animation-delay:-8s;}.hero-slide:nth-child(4){animation-delay:-12s;}
 @keyframes kenBurns{0%{transform:scale(1) translate(0%,0%);}50%{transform:scale(1.1) translate(-1%,-1%);}100%{transform:scale(1.04) translate(1%,0%);}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(5,8,16,0.97) 0%,rgba(5,8,16,0.85) 40%,rgba(5,8,16,0.5) 65%,rgba(5,8,16,0.1) 100%);}
+.hero-bg { position:absolute; inset:0; overflow:hidden; z-index:0; }
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(5,8,16,0.97) 0%,rgba(5,8,16,0.85) 40%,rgba(5,8,16,0.5) 65%,rgba(5,8,16,0.1) 100%);}
 .hero-content{position:relative; z-index:2; left:0;padding:0 60px;max-width:720px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(30,58,138,0.35);border:1px solid var(--blue-light);border-radius:50px;padding:7px 18px;margin-bottom:24px;}
 .hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;}
@@ -258,6 +259,7 @@ section{padding:80px 0;}
         </div>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
+        <a href="careers.html" style="color:#60a5fa;font-weight:600;">We're Hiring</a>
         <a href="contact.html" class="nav-cta">📞 (563) 213-4418</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
@@ -268,6 +270,7 @@ section{padding:80px 0;}
 </nav>
 
 <section class="hero">
+    <div class="hero-bg">
   <div class="hero-slides">
     <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop');"></div>
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=85&auto=format&fit=crop');"></div>
@@ -275,6 +278,7 @@ section{padding:80px 0;}
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=85&auto=format&fit=crop');"></div>
   </div>
   <div class="hero-overlay"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
