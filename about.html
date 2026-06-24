@@ -286,6 +286,22 @@ section{padding:80px 0;}
   .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
   .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }
 
+
+  /* DUKE CHAT */
+  #chat-launcher{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:var(--blue,#2B35AF);border:2px solid rgba(96,165,250,0.6);cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(43,53,175,0.6);font-size:26px;transition:transform 0.2s;}
+  #chat-launcher:hover{transform:scale(1.08);}
+  #chat-popup{display:none;position:fixed;bottom:106px;right:28px;width:330px;background:#111827;border:1px solid rgba(43,53,175,0.4);border-radius:18px;z-index:9998;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.8);}
+  .chat-header{background:#2B35AF;padding:14px 16px;display:flex;align-items:center;gap:10px;}
+  .chat-avatar{width:38px;height:38px;border-radius:50%;background:#1e2a3a;border:1px solid rgba(96,165,250,0.5);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .chat-name{font-size:15px;font-weight:700;color:#fff;font-family:inherit;}
+  .chat-status{font-size:12px;color:#86efac;}
+  .chat-close{background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:18px;margin-left:auto;line-height:1;}
+  .chat-body{padding:14px;min-height:100px;max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
+  .chat-bubble{background:#1e2a3a;border:1px solid rgba(43,53,175,0.3);border-radius:12px;border-bottom-left-radius:4px;padding:11px 14px;font-size:14px;color:#e8f0fe;line-height:1.5;}
+  .chat-input-row{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(43,53,175,0.3);background:#0c1220;}
+  .chat-input{flex:1;background:#1e2a3a;border:1px solid #2B35AF;border-radius:8px;color:#e5e5e5;font-size:14px;padding:9px 12px;outline:none;font-family:inherit;}
+  .chat-input:focus{border-color:#60a5fa;}
+  .chat-send{background:#2B35AF;border:none;border-radius:8px;width:38px;height:38px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -670,6 +686,88 @@ section{padding:80px 0;}
       }
     });
   });
+})();
+</script>
+
+<!-- DUKE CHAT WIDGET -->
+<button id="chat-launcher" title="Chat with Duke">🎨</button>
+<div id="chat-popup">
+  <div class="chat-header">
+    <div class="chat-avatar">🎨</div>
+    <div><div class="chat-name">Duke</div><div class="chat-status">● Fuehrer Painting Assistant</div></div>
+    <button class="chat-close" id="chat-close-btn">✕</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-bubble">Hey! 👋 I'm Duke, Fuehrer Painting's assistant. Ask me anything — or I can set you up with a free estimate from Mark.</div>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" placeholder="Ask a question...">
+    <button class="chat-send" id="chat-send">→</button>
+  </div>
+</div>
+
+<!-- DUKE CHATBOT JS -->
+<script>
+(function(){
+  var launcher=document.getElementById('chat-launcher'),
+      popup=document.getElementById('chat-popup'),
+      closeBtn=document.getElementById('chat-close-btn'),
+      input=document.getElementById('chat-input'),
+      sendBtn=document.getElementById('chat-send'),
+      body=document.getElementById('chat-body');
+  if(!launcher||!popup)return;
+  launcher.addEventListener('click',function(){
+    var open=popup.style.display==='flex';
+    popup.style.display=open?'none':'flex';
+    if(!open&&input)input.focus();
+  });
+  if(closeBtn)closeBtn.addEventListener('click',function(){popup.style.display='none';});
+  var faqs=[
+    {k:['estimate','quote','price','cost','how much','charge'],a:'Free estimates — always. Mark comes out, takes a look, and gives you a written quote with no obligation. <a href="contact.html" style="color:#60a5fa;">Request yours →</a>'},
+    {k:['interior','inside','walls','ceiling','room','bedroom','living room'],a:'Interior painting is our specialty — walls, ceilings, trim, doors. We prep right and leave zero mess. <a href="interior-painting-dubuque.html" style="color:#60a5fa;">Interior services →</a>'},
+    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don't cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
+    {k:['cabinet','kitchen','cupboard','bathroom vanity'],a:'Cabinet painting is one of the best-value upgrades you can do. Spray-applied, factory-smooth finish. <a href="cabinet-painting-dubuque.html" style="color:#60a5fa;">Cabinet services →</a>'},
+    {k:['commercial','business','office','property manager','retail'],a:'We handle commercial jobs — offices, retail, rentals. We work around your schedule. <a href="commercial-painting-dubuque.html" style="color:#60a5fa;">Commercial →</a>'},
+    {k:['stain','deck','fence','wood'],a:'We stain decks, fences, and other wood surfaces. Right product, right prep — it lasts. <a href="staining-dubuque.html" style="color:#60a5fa;">Staining services →</a>'},
+    {k:['new construction','new build','builder','new home'],a:'We partner with builders on new construction. Tight timelines, clean work. <a href="new-construction-painting-dubuque.html" style="color:#60a5fa;">New construction →</a>'},
+    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We're based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
+    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can't show you this."},
+    {k:['guarantee','warranty','satisfaction'],a:'100% satisfaction guarantee. We do a final walkthrough before asking for payment. Something not right? We make it right.'},
+    {k:['how long','timeline','schedule','book','available','when can'],a:'Timeline depends on project size and season — spring/summer books fast. Fill out the form and we'll give you a real answer. <a href="contact.html" style="color:#60a5fa;">Check availability →</a>'},
+    {k:['phone','call','number','contact','reach','talk to'],a:'Call or text Mark directly: <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>. Mon–Sat 7am–6pm.'},
+    {k:['hours','open','days','monday','saturday'],a:'Monday through Saturday, 7am–6pm. We communicate proactively if anything changes on your project.'},
+    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We've earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
+    {k:['gallery','photos','portfolio','pictures','examples','see your work'],a:'Check out our recent work. <a href="gallery.html" style="color:#60a5fa;">View gallery →</a>'},
+    {k:['pay','payment','deposit','cash','check','credit'],a:'We accept cash, check, and electronic payment. Larger projects may require a materials deposit. Final payment after your approval walkthrough.'},
+    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We're always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
+    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore — both have great tools. Let's get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
+  ];
+  function reply(msg){
+    var l=msg.toLowerCase();
+    for(var i=0;i<faqs.length;i++)for(var j=0;j<faqs[i].k.length;j++)if(l.indexOf(faqs[i].k[j])!==-1)return faqs[i].a;
+    return 'Good question — best thing is to connect with Mark directly. <a href="contact.html" style="color:#60a5fa;">Free estimate →</a> or call <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.';
+  }
+  function addMsg(text,isUser){
+    var wrap=document.createElement('div');
+    wrap.style.cssText='display:flex;margin-bottom:4px;'+(isUser?'justify-content:flex-end;':'');
+    var bub=document.createElement('div');
+    bub.innerHTML=text;
+    bub.style.cssText=isUser
+      ?'background:#2B35AF;color:#fff;border-radius:12px;border-bottom-right-radius:4px;padding:10px 14px;font-size:14px;max-width:88%;line-height:1.5;'
+      :'background:#1e2a3a;border:1px solid rgba(43,53,175,0.3);border-radius:12px;border-bottom-left-radius:4px;padding:10px 14px;font-size:14px;color:#e8f0fe;max-width:88%;line-height:1.5;';
+    wrap.appendChild(bub);
+    body.appendChild(wrap);
+    body.scrollTop=body.scrollHeight;
+  }
+  function send(){
+    var msg=input.value.trim();
+    if(!msg)return;
+    addMsg(msg,true);
+    input.value='';
+    setTimeout(function(){addMsg(reply(msg),false);},380);
+  }
+  if(sendBtn)sendBtn.addEventListener('click',send);
+  if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
 })();
 </script>
 </body>

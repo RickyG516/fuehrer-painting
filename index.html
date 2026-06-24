@@ -130,7 +130,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   .chat-name { font-size: 14px; font-weight: 600; color: #fff; }
   .chat-status { font-size: 12px; color: #86efac; }
   .chat-close { background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 18px; margin-left: auto; }
-  .chat-body { padding: 16px; min-height: 110px; }
+  .chat-body { padding: 14px; min-height: 100px; max-height: 280px; overflow-y: auto; display:flex; flex-direction:column; gap:8px; }
   .chat-bubble { background: var(--black4); border: 1px solid var(--border); border-radius: 12px; border-bottom-left-radius: 4px; padding: 12px 14px; font-size: 14px; color: var(--offwhite); max-width: 88%; }
   .chat-input-row { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border); background: var(--black2); }
   .chat-input { flex: 1; background: var(--black4); border: 1px solid var(--blue-mid); border-radius: 8px; color: #e5e5e5; font-size: 14px; padding: 9px 12px; outline: none; font-family: inherit; }
@@ -570,24 +570,23 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 </svg>
 </div>
 
-<!-- REAL PHOTO SECTION -->
-<section class="photo-section" id="work">
+<!-- RECENT WORK SECTION -->
+<section style="background:#0c1220;padding:80px 0;">
   <div class="container">
     <div class="section-label">Our Work</div>
     <div class="section-title">Real Jobs. Real Results.</div>
-    <p style="font-size:17px; color:var(--muted); max-width:560px;">Every project is handled with the same attention to detail — whether it's a single room or a full exterior overhaul.</p>
-    <!-- Mark: drop job photos here before launch -->
-    <div class="ba-wrap fade-in" id="baSlider">
-      <!-- BEFORE image -->
-      <img class="ba-after-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2rjIHATVRamtxoEq6prtw8RWYxXI9IcKAIK6rIwhObpUK7-9yeW_AVcHGnbMAJFcDeRLmlKuiUXywO20_6rywx4eQn4i7w3jetYMANeWtb73ABJL1n6blp9ErBFJumRo-B-zQ1=w900-h1200-k-no" alt="After painting — Fuehrer Painting LLC">
-      <div class="ba-before-layer" id="baLayer">
-        <img class="ba-before-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3Z7pPOZzWw4UERXFbRnz8CMCPJMo-SB14d9_MmCymnn_o3wBwNGkKvhA8uyQiR2l41LtbPR529PjgE7SuqLtlfGDs0LOHMV5J4_KtHdb-DI4fQHohoYvyGlJBZNacNaTqGn4BZVNVgJ0E=w900-h1200-k-no" alt="Before painting">
-        <div class="ba-handle">⟺</div>
-        <span class="ba-label before">BEFORE</span>
-      </div>
-      <span class="ba-label after">AFTER</span>
+    <p style="font-size:17px;color:#94a3b8;max-width:560px;margin-bottom:40px;">Every project gets the same attention — whether it's one room or a full exterior. Here's a look at recent work.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn3WKVXu-QJW2tEaSJhICtN1inXIgENWeC-oToP8hTzgK7psBp2uWEstCyS4FvljlPpXb0MIxg8iSPEBptdjXVzCxrwBDeIkyG2xwlzDVe8z62VQr_-0IVi51TKnRXk9ZuNiP_TxWg=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2awnVgXowhs3GOjMWT9CGwTebDHK-wLdgPrq_vDYa8fkUdcnyUNYvnIxk9Tp7lkd78AhKM6vMZ6MqgmcMp2kOf3_88qIkXeRSrwQ4CYBrY6XOItgG2TgmbLxWTzLvSWPMXVu4G=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZ3YPWFcnAp4qE0LzmQDpOu3F1eBYDrUh0gW7QsjVEoDjQSxOlBwpzgb0ce44uV80o4sXBw5UpxN6rWuvjddzkISr8DuydyrVEXOFZ2AvlCA3hX8-XW5H0XVl04hgczTDN9dSdZQ=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHbXx5_AVq7mGPt5MhkdoYlTKCzcRTCkVcPju-g_Sqk28q2RzddO3d8cpCCNyplGmeCV9nN_biVpscqG5h2qwHqOeyjTb6da0Kic8HQL6M5nms0JYljdVb5krvZMMBIgbWn6eIo=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF9KrjrDs_kqZl-9lhh-igNQ-dMCewYKWaEwtDb94Ktd1xD7BF5HcPwCB3gXdcWFEGjJKoaLUN02Xfezg3Nrw4NWO0ulLqZbMyZKrJmJOBb40oyxbx8FrGFJQUQTUOG8XSfn39Q=w1600-h1200-k-no" alt="Fuehrer Painting work" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"></div>
     </div>
-    <p style="text-align:center; color:var(--muted); font-size:14px; margin-top:20px; font-style:italic;">← Drag to reveal the transformation · Mark's real job photos coming soon</p></section>
+    <div style="text-align:center;margin-top:32px;"><a href="gallery.html" style="display:inline-block;background:#2B35AF;color:#fff;font-weight:700;padding:14px 32px;border-radius:10px;font-size:15px;text-decoration:none;border:1px solid rgba(96,165,250,0.5);">View Full Gallery →</a></div>
+  </div>
+</section>
 
 
 
@@ -785,23 +784,23 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   </div>
 </footer>
 
-<!-- CHAT WIDGET -->
-<button id="chat-launcher" onclick="document.getElementById('chat-popup').style.display='flex'">💬</button>
+
+<!-- DUKE CHAT WIDGET -->
+<button id="chat-launcher" title="Chat with Duke">🎨</button>
 <div id="chat-popup">
   <div class="chat-header">
-    <div class="chat-avatar"><img src="images/logo.png" alt="FP" style="width:38px;height:38px;object-fit:cover;border-radius:50%;"></div>
-    <div><div class="chat-name">Fuehrer Painting</div><div class="chat-status">● Online Now</div></div>
-    <button class="chat-close" onclick="document.getElementById('chat-popup').style.display='none'">✕</button>
+    <div class="chat-avatar">🎨</div>
+    <div><div class="chat-name">Duke</div><div class="chat-status">● Fuehrer Painting Assistant</div></div>
+    <button class="chat-close" id="chat-close-btn">✕</button>
   </div>
-  <div class="chat-body">
-    <div class="chat-bubble">Hey! 👋 Need a free estimate or have a quick question? We'll get back to you fast.</div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-bubble">Hey! 👋 I'm Duke, Fuehrer Painting's assistant. Ask me anything — or I can set you up with a free estimate from Mark.</div>
   </div>
   <div class="chat-input-row">
-    <input class="chat-input" placeholder="Type a message...">
-    <button class="chat-send">→</button>
+    <input class="chat-input" id="chat-input" placeholder="Ask a question...">
+    <button class="chat-send" id="chat-send">→</button>
   </div>
 </div>
-
 
 <script>
 // ── Ken Burns Cycling Hero ──
@@ -912,6 +911,71 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
       }
     });
   });
+})();
+</script>
+
+<!-- DUKE CHATBOT JS -->
+<script>
+(function(){
+  var launcher=document.getElementById('chat-launcher'),
+      popup=document.getElementById('chat-popup'),
+      closeBtn=document.getElementById('chat-close-btn'),
+      input=document.getElementById('chat-input'),
+      sendBtn=document.getElementById('chat-send'),
+      body=document.getElementById('chat-body');
+  if(!launcher||!popup)return;
+  launcher.addEventListener('click',function(){
+    var open=popup.style.display==='flex';
+    popup.style.display=open?'none':'flex';
+    if(!open&&input)input.focus();
+  });
+  if(closeBtn)closeBtn.addEventListener('click',function(){popup.style.display='none';});
+  var faqs=[
+    {k:['estimate','quote','price','cost','how much','charge'],a:'Free estimates — always. Mark comes out, takes a look, and gives you a written quote with no obligation. <a href="contact.html" style="color:#60a5fa;">Request yours →</a>'},
+    {k:['interior','inside','walls','ceiling','room','bedroom','living room'],a:'Interior painting is our specialty — walls, ceilings, trim, doors. We prep right and leave zero mess. <a href="interior-painting-dubuque.html" style="color:#60a5fa;">Interior services →</a>'},
+    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don't cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
+    {k:['cabinet','kitchen','cupboard','bathroom vanity'],a:'Cabinet painting is one of the best-value upgrades you can do. Spray-applied, factory-smooth finish. <a href="cabinet-painting-dubuque.html" style="color:#60a5fa;">Cabinet services →</a>'},
+    {k:['commercial','business','office','property manager','retail'],a:'We handle commercial jobs — offices, retail, rentals. We work around your schedule. <a href="commercial-painting-dubuque.html" style="color:#60a5fa;">Commercial →</a>'},
+    {k:['stain','deck','fence','wood'],a:'We stain decks, fences, and other wood surfaces. Right product, right prep — it lasts. <a href="staining-dubuque.html" style="color:#60a5fa;">Staining services →</a>'},
+    {k:['new construction','new build','builder','new home'],a:'We partner with builders on new construction. Tight timelines, clean work. <a href="new-construction-painting-dubuque.html" style="color:#60a5fa;">New construction →</a>'},
+    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We're based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
+    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can't show you this."},
+    {k:['guarantee','warranty','satisfaction'],a:'100% satisfaction guarantee. We do a final walkthrough before asking for payment. Something not right? We make it right.'},
+    {k:['how long','timeline','schedule','book','available','when can'],a:'Timeline depends on project size and season — spring/summer books fast. Fill out the form and we'll give you a real answer. <a href="contact.html" style="color:#60a5fa;">Check availability →</a>'},
+    {k:['phone','call','number','contact','reach','talk to'],a:'Call or text Mark directly: <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>. Mon–Sat 7am–6pm.'},
+    {k:['hours','open','days','monday','saturday'],a:'Monday through Saturday, 7am–6pm. We communicate proactively if anything changes on your project.'},
+    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We've earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
+    {k:['gallery','photos','portfolio','pictures','examples','see your work'],a:'Check out our recent work. <a href="gallery.html" style="color:#60a5fa;">View gallery →</a>'},
+    {k:['pay','payment','deposit','cash','check','credit'],a:'We accept cash, check, and electronic payment. Larger projects may require a materials deposit. Final payment after your approval walkthrough.'},
+    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We're always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
+    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore — both have great tools. Let's get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
+  ];
+  function reply(msg){
+    var l=msg.toLowerCase();
+    for(var i=0;i<faqs.length;i++)for(var j=0;j<faqs[i].k.length;j++)if(l.indexOf(faqs[i].k[j])!==-1)return faqs[i].a;
+    return 'Good question — best thing is to connect with Mark directly. <a href="contact.html" style="color:#60a5fa;">Free estimate →</a> or call <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.';
+  }
+  function addMsg(text,isUser){
+    var wrap=document.createElement('div');
+    wrap.style.cssText='display:flex;margin-bottom:4px;'+(isUser?'justify-content:flex-end;':'');
+    var bub=document.createElement('div');
+    bub.innerHTML=text;
+    bub.style.cssText=isUser
+      ?'background:#2B35AF;color:#fff;border-radius:12px;border-bottom-right-radius:4px;padding:10px 14px;font-size:14px;max-width:88%;line-height:1.5;'
+      :'background:#1e2a3a;border:1px solid rgba(43,53,175,0.3);border-radius:12px;border-bottom-left-radius:4px;padding:10px 14px;font-size:14px;color:#e8f0fe;max-width:88%;line-height:1.5;';
+    wrap.appendChild(bub);
+    body.appendChild(wrap);
+    body.scrollTop=body.scrollHeight;
+  }
+  function send(){
+    var msg=input.value.trim();
+    if(!msg)return;
+    addMsg(msg,true);
+    input.value='';
+    setTimeout(function(){addMsg(reply(msg),false);},380);
+  }
+  if(sendBtn)sendBtn.addEventListener('click',send);
+  if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
 })();
 </script>
 </body>
