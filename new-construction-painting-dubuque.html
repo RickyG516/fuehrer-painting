@@ -696,36 +696,40 @@ section{padding:80px 0;}
       sendBtn=document.getElementById('chat-send'),
       body=document.getElementById('chat-body');
   if(!launcher||!popup)return;
+
+  var leadAsked=false, msgCount=0;
+
   launcher.addEventListener('click',function(){
     var open=popup.style.display==='flex';
     popup.style.display=open?'none':'flex';
     if(!open&&input)input.focus();
   });
   if(closeBtn)closeBtn.addEventListener('click',function(){popup.style.display='none';});
+
   var faqs=[
     {k:['estimate','quote','price','cost','how much','charge'],a:'Free estimates — always. Mark comes out, takes a look, and gives you a written quote with no obligation. <a href="contact.html" style="color:#60a5fa;">Request yours →</a>'},
     {k:['interior','inside','walls','ceiling','room','bedroom','living room'],a:'Interior painting is our specialty — walls, ceilings, trim, doors. We prep right and leave zero mess. <a href="interior-painting-dubuque.html" style="color:#60a5fa;">Interior services →</a>'},
-    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don't cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
+    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don’t cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
     {k:['cabinet','kitchen','cupboard','bathroom vanity'],a:'Cabinet painting is one of the best-value upgrades you can do. Spray-applied, factory-smooth finish. <a href="cabinet-painting-dubuque.html" style="color:#60a5fa;">Cabinet services →</a>'},
     {k:['commercial','business','office','property manager','retail'],a:'We handle commercial jobs — offices, retail, rentals. We work around your schedule. <a href="commercial-painting-dubuque.html" style="color:#60a5fa;">Commercial →</a>'},
     {k:['stain','deck','fence','wood'],a:'We stain decks, fences, and other wood surfaces. Right product, right prep — it lasts. <a href="staining-dubuque.html" style="color:#60a5fa;">Staining services →</a>'},
     {k:['new construction','new build','builder','new home'],a:'We partner with builders on new construction. Tight timelines, clean work. <a href="new-construction-painting-dubuque.html" style="color:#60a5fa;">New construction →</a>'},
-    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We're based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
-    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can't show you this."},
+    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We’re based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
+    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can’t show you this."},
     {k:['guarantee','warranty','satisfaction'],a:'100% satisfaction guarantee. We do a final walkthrough before asking for payment. Something not right? We make it right.'},
-    {k:['how long','timeline','schedule','book','available','when can'],a:'Timeline depends on project size and season — spring/summer books fast. Fill out the form and we'll give you a real answer. <a href="contact.html" style="color:#60a5fa;">Check availability →</a>'},
+    {k:['how long','timeline','schedule','book','available','when can'],a:'Timeline depends on project size and season — spring/summer books fast. The form below gets you a real answer fast. <a href="contact.html" style="color:#60a5fa;">Check availability →</a>'},
     {k:['phone','call','number','contact','reach','talk to'],a:'Call or text Mark directly: <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>. Mon–Sat 7am–6pm.'},
     {k:['hours','open','days','monday','saturday'],a:'Monday through Saturday, 7am–6pm. We communicate proactively if anything changes on your project.'},
-    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We've earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
+    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We’ve earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
     {k:['gallery','photos','portfolio','pictures','examples','see your work'],a:'Check out our recent work. <a href="gallery.html" style="color:#60a5fa;">View gallery →</a>'},
     {k:['pay','payment','deposit','cash','check','credit'],a:'We accept cash, check, and electronic payment. Larger projects may require a materials deposit. Final payment after your approval walkthrough.'},
-    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We're always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
-    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore — both have great tools. Let's get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
+    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We’re always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
+    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore. Let’s get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
   ];
   function reply(msg){
     var l=msg.toLowerCase();
     for(var i=0;i<faqs.length;i++)for(var j=0;j<faqs[i].k.length;j++)if(l.indexOf(faqs[i].k[j])!==-1)return faqs[i].a;
-    return 'Good question — best thing is to connect with Mark directly. <a href="contact.html" style="color:#60a5fa;">Free estimate →</a> or call <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.';
+    return 'Good question — best thing is to get Mark the details directly. Fill out the form below and he’ll come back with a real number.';
   }
   function addMsg(text,isUser){
     var wrap=document.createElement('div');
@@ -734,21 +738,82 @@ section{padding:80px 0;}
     bub.innerHTML=text;
     bub.style.cssText=isUser
       ?'background:#2B35AF;color:#fff;border-radius:12px;border-bottom-right-radius:4px;padding:10px 14px;font-size:14px;max-width:88%;line-height:1.5;'
-      :'background:#1e2a3a;border:1px solid rgba(43,53,175,0.3);border-radius:12px;border-bottom-left-radius:4px;padding:10px 14px;font-size:14px;color:#e8f0fe;max-width:88%;line-height:1.5;';
+      :'background:#1e2a3a;border:1px solid rgba(43,53,175,0.3);border-radius:12px;border-bottom-left-radius:4px;padding:10px 14px;font-size:14px;color:#e8f0fe;max-width:92%;line-height:1.5;';
     wrap.appendChild(bub);
     body.appendChild(wrap);
     body.scrollTop=body.scrollHeight;
+    return bub;
+  }
+  function showLeadForm(){
+    if(leadAsked)return;
+    leadAsked=true;
+    var wrap=document.createElement('div');
+    wrap.style.cssText='display:flex;margin-bottom:4px;';
+    var bub=document.createElement('div');
+    bub.style.cssText='background:#1e2a3a;border:1px solid rgba(43,53,175,0.4);border-radius:12px;border-bottom-left-radius:4px;padding:14px;font-size:14px;color:#e8f0fe;width:100%;line-height:1.6;box-sizing:border-box;';
+    var iStyle='background:#0d1520;border:1px solid rgba(43,53,175,0.5);border-radius:7px;padding:8px 10px;color:#e8f0fe;font-size:13px;outline:none;width:100%;box-sizing:border-box;font-family:inherit;';
+    bub.innerHTML=''
+      +'<div style="font-weight:700;color:#93c5fd;margin-bottom:6px;">Want Mark to reach out with a real quote?</div>'
+      +'<div style="font-size:13px;color:#94a3b8;margin-bottom:12px;">The more detail you give him upfront, the faster he can prioritize you — and the more accurate your number will be. Serious inquiries get called first.</div>'
+      +'<form id="duke-form" style="display:flex;flex-direction:column;gap:8px;">'
+      +'<input name="name" placeholder="Full name *" required style="'+iStyle+'">'
+      +'<input name="phone" type="tel" placeholder="Phone number *" required style="'+iStyle+'">'
+      +'<input name="email" type="email" placeholder="Email address" style="'+iStyle+'">'
+      +'<textarea name="scope" placeholder="What needs painting? Give us as much detail as you can — rooms, surfaces, square footage, condition, anything relevant." rows="3" style="'+iStyle+'resize:none;"></textarea>'
+      +'<input name="timeline" placeholder="Timeline — when do you want this done?" style="'+iStyle+'">'
+      +'<button type="submit" style="background:#2B35AF;color:#fff;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.04em;margin-top:2px;">Send to Mark →</button>'
+      +'</form>';
+    wrap.appendChild(bub);
+    body.appendChild(wrap);
+    body.scrollTop=body.scrollHeight;
+    document.getElementById('duke-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var f=e.target;
+      var data=new URLSearchParams({
+        'form-name':'duke-lead',
+        'name':f.name.value,
+        'phone':f.phone.value,
+        'email':f.email.value,
+        'scope':f.scope.value,
+        'timeline':f.timeline.value
+      });
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()})
+        .then(function(){
+          bub.innerHTML='<div style="color:#4ade80;font-weight:700;font-size:15px;margin-bottom:6px;">✓ You're in the queue.</div>'
+            +'<div style="font-size:13px;color:#94a3b8;">Mark has everything he needs to come back with a real number — not a rough guess. Expect a call within 24 hours. Need it faster? <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.</div>';
+          if(input){input.disabled=true;input.placeholder='Message sent — Mark will be in touch.';}
+          if(sendBtn)sendBtn.disabled=true;
+        })
+        .catch(function(){
+          bub.innerHTML+='<div style="color:#f87171;font-size:13px;margin-top:8px;">Something went wrong. Call Mark directly: <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a></div>';
+        });
+    });
   }
   function send(){
     var msg=input.value.trim();
-    if(!msg)return;
+    if(!msg||input.disabled)return;
     addMsg(msg,true);
     input.value='';
-    setTimeout(function(){addMsg(reply(msg),false);},380);
+    setTimeout(function(){
+      addMsg(reply(msg),false);
+      msgCount++;
+      if(msgCount===1&&!leadAsked){setTimeout(showLeadForm,900);}
+    },380);
   }
   if(sendBtn)sendBtn.addEventListener('click',send);
   if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter')send();});
 })();
 </script>
+
+<!-- NETLIFY HIDDEN FORM: Duke lead capture -->
+<form name="duke-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="duke-lead">
+  <input name="bot-field" type="hidden">
+  <input name="name" type="text">
+  <input name="phone" type="tel">
+  <input name="email" type="email">
+  <textarea name="scope"></textarea>
+  <input name="timeline" type="text">
+</form>
 </body>
 </html>
