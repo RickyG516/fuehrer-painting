@@ -334,6 +334,16 @@ section{padding:80px 0;}
   .chat-input{flex:1;background:#1e2a3a;border:1px solid #2B35AF;border-radius:8px;color:#e5e5e5;font-size:14px;padding:9px 12px;outline:none;font-family:inherit;}
   .chat-input:focus{border-color:#60a5fa;}
   .chat-send{background:#2B35AF;border:none;border-radius:8px;width:38px;height:38px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;}
+
+.ba-section{padding:80px 0;background:#111;}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-radius:12px;overflow:hidden;}
+.ba-img-wrap{position:relative;}
+.ba-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+.ba-label{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:4px;font-size:11px;font-weight:800;letter-spacing:.08em;}
+.ba-before{background:rgba(0,0,0,.7);color:#fff;}
+.ba-after{background:#2B35AF;color:#fff;}
+@media(max-width:768px){.ba-grid{grid-template-columns:1fr;}.ba-pair{gap:4px;}}
 </style>
 </head>
 <body>
@@ -585,21 +595,34 @@ section{padding:80px 0;}
 </section>
 
 <!-- BEFORE/AFTER -->
-<section style="background:var(--black2);padding:80px 0;">
+<section class="ba-section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px;" class="fade-in">
-      <div class="section-label">Real Kitchen Transformations</div>
-      <h2 class="section-title">The Difference Is Dramatic</h2>
-      <p style="color:var(--muted);font-size:16px;margin-top:16px;">Drag the slider. Same kitchen. Same layout. Completely different room.</p>
+    <div style="text-align:center;" class="fade-in">
+      <div class="section-label">OUR WORK</div>
+      <h2 class="section-title">Cabinet Painting — Before &amp; After</h2>
+      <p style="color:var(--muted);font-size:16px;margin-top:16px;">Real results from Dubuque area homes.</p>
     </div>
-    <div class="ba-wrap" id="baSlider">
-      <img class="ba-after-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn2awnVgXowhs3GOjMWT9CGwTebDHK-wLdgPrq_vDYa8fkUdcnyUNYvnIxk9Tp7lkd78AhKM6vMZ6MqgmcMp2kOf3_88qIkXeRSrwQ4CYBrY6XOItgG2TgmbLxWTzLvSWPMXVu4G=w1600-h1200-k-no" alt="After cabinet painting Dubuque Iowa" loading="lazy">
-      <div class="ba-before-layer" id="baLayer">
-        <img class="ba-before-img" src="https://lh3.googleusercontent.com/grass-cs/ANxoTn37qqLm0n3YsejmplzXUaWYJcsGtJdvhZMqTT4id3ZOCfJw9gzZ6my-Vs8hsAYd1LSnREVCanhKaGhOmdJ6OEfveEijpM8IiWCN3y7HoxSQBCV1_Yp2UnrhqSmIkybYHSNYhx_TEJfPHijS=w1600-h1200-k-no" alt="Before cabinet painting Dubuque Iowa" loading="lazy">
-        <span class="ba-label before">Before</span>
+    <div class="ba-grid">
+      <div class="ba-pair">
+        <div class="ba-img-wrap">
+          <img src="images/cabinets-before-1.jpg" alt="Cabinet painting before" loading="lazy">
+          <span class="ba-label ba-before">BEFORE</span>
+        </div>
+        <div class="ba-img-wrap">
+          <img src="images/cabinets-after-1.jpg" alt="Cabinet painting after" loading="lazy">
+          <span class="ba-label ba-after">AFTER</span>
+        </div>
       </div>
-      <div class="ba-handle">&#8596;</div>
-      <span class="ba-label after">After</span>
+      <div class="ba-pair">
+        <div class="ba-img-wrap">
+          <img src="images/cabinets-before-1.jpg" alt="Cabinet painting before" loading="lazy">
+          <span class="ba-label ba-before">BEFORE</span>
+        </div>
+        <div class="ba-img-wrap">
+          <img src="images/cabinets-after-1b.jpg" alt="Cabinet painting after" loading="lazy">
+          <span class="ba-label ba-after">AFTER</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

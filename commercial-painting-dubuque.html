@@ -304,6 +304,13 @@ section{padding:80px 0;}
   .chat-input{flex:1;background:#1e2a3a;border:1px solid #2B35AF;border-radius:8px;color:#e5e5e5;font-size:14px;padding:9px 12px;outline:none;font-family:inherit;}
   .chat-input:focus{border-color:#60a5fa;}
   .chat-send{background:#2B35AF;border:none;border-radius:8px;width:38px;height:38px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;}
+
+.ba-section{padding:80px 0;background:#111;}
+.rw-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;}
+.rw-img-wrap{position:relative;border-radius:12px;overflow:hidden;}
+.rw-img-wrap img{width:100%;height:360px;object-fit:cover;display:block;}
+.rw-caption{display:block;padding:12px 16px;background:#1a1a1a;color:#aaa;font-size:13px;}
+@media(max-width:768px){.rw-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -561,6 +568,26 @@ section{padding:80px 0;}
         <div class="step-num">5</div>
         <div class="step-title">Quality Sign-Off</div>
         <div class="step-text">Full walkthrough with facility manager or owner before we sign off. Any punch list items addressed immediately. You don't approve until it's right.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba-section">
+  <div class="container">
+    <div style="text-align:center;" class="fade-in">
+      <div class="section-label">OUR WORK</div>
+      <h2 class="section-title">Commercial Painting — Recent Projects</h2>
+      <p style="color:var(--muted);font-size:16px;margin-top:16px;">Interior commercial work in the Dubuque area.</p>
+    </div>
+    <div class="rw-grid">
+      <div class="rw-img-wrap">
+        <img src="images/commercial-tall-ceilings.jpg" alt="Commercial tall ceiling painting" loading="lazy">
+        <span class="rw-caption">High-ceiling interior — commercial facility</span>
+      </div>
+      <div class="rw-img-wrap">
+        <img src="images/commercial-progress.jpg" alt="Commercial painting in progress" loading="lazy">
+        <span class="rw-caption">Commercial project in progress</span>
       </div>
     </div>
   </div>
