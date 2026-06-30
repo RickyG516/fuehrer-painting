@@ -798,27 +798,27 @@ section{padding:80px 0;}
   var faqs=[
     {k:['estimate','quote','price','cost','how much','charge'],a:'Free estimates — always. Mark comes out, takes a look, and gives you a written quote with no obligation. <a href="contact.html" style="color:#60a5fa;">Request yours →</a>'},
     {k:['interior','inside','walls','ceiling','room','bedroom','living room'],a:'Interior painting is our specialty — walls, ceilings, trim, doors. We prep right and leave zero mess. <a href="interior-painting-dubuque.html" style="color:#60a5fa;">Interior services →</a>'},
-    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don’t cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
+    {k:['exterior','outside','siding','curb appeal','house paint','outdoor'],a:'Exterior work starts with prep and the right product for midwest weather. We don\'t cut corners on either. <a href="exterior-painting-dubuque.html" style="color:#60a5fa;">Exterior services →</a>'},
     {k:['cabinet','kitchen','cupboard','bathroom vanity'],a:'Cabinet painting is one of the best-value upgrades you can do. Spray-applied, factory-smooth finish. <a href="cabinet-painting-dubuque.html" style="color:#60a5fa;">Cabinet services →</a>'},
     {k:['commercial','business','office','property manager','retail'],a:'We handle commercial jobs — offices, retail, rentals. We work around your schedule. <a href="commercial-painting-dubuque.html" style="color:#60a5fa;">Commercial →</a>'},
     {k:['stain','deck','fence','wood'],a:'We stain decks, fences, and other wood surfaces. Right product, right prep — it lasts. <a href="staining-dubuque.html" style="color:#60a5fa;">Staining services →</a>'},
     {k:['new construction','new build','builder','new home'],a:'We partner with builders on new construction. Tight timelines, clean work. <a href="new-construction-painting-dubuque.html" style="color:#60a5fa;">New construction →</a>'},
-    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We’re based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
-    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can’t show you this."},
+    {k:['area','where','location','dubuque','galena','platteville','dyersville','tri-state','serve','travel'],a:"We\'re based in Dubuque and serve the Tri-State area — Galena IL, Platteville WI, Dyersville, Asbury, Peosta, and surrounding communities."},
+    {k:['license','insure','insured','bonded'],a:"Yes — licensed in Iowa and fully insured. We provide proof before any job starts. Never hire a painter who can\'t show you this."},
     {k:['guarantee','warranty','satisfaction'],a:'100% satisfaction guarantee. We do a final walkthrough before asking for payment. Something not right? We make it right.'},
     {k:['how long','timeline','schedule','book','available','when can'],a:'Timeline depends on project size and season — spring/summer books fast. The form below gets you a real answer fast. <a href="contact.html" style="color:#60a5fa;">Check availability →</a>'},
     {k:['phone','call','number','contact','reach','talk to'],a:'Call or text Mark directly: <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>. Mon–Sat 7am–6pm.'},
     {k:['hours','open','days','monday','saturday'],a:'Monday through Saturday, 7am–6pm. We communicate proactively if anything changes on your project.'},
-    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We’ve earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
+    {k:['review','rating','google','testimonial','reputation','stars'],a:'5.0 stars on Google. 500+ completed jobs. We\'ve earned every one. <a href="about.html" style="color:#60a5fa;">See what clients say →</a>'},
     {k:['gallery','photos','portfolio','pictures','examples','see your work'],a:'Check out our recent work. <a href="gallery.html" style="color:#60a5fa;">View gallery →</a>'},
     {k:['pay','payment','deposit','cash','check','credit'],a:'We accept cash, check, and electronic payment. Larger projects may require a materials deposit. Final payment after your approval walkthrough.'},
-    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We’re always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
-    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore. Let’s get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
+    {k:['hire','job','work for','employ','career','position','painter needed'],a:'We\'re always looking for skilled painters. <a href="careers.html" style="color:#60a5fa;">See open positions →</a>'},
+    {k:['color','colors','help choose','color selection'],a:'Mark can help with color selection on-site. We work with Sherwin-Williams and Benjamin Moore. Let\'s get you an estimate first. <a href="contact.html" style="color:#60a5fa;">Request estimate →</a>'},
   ];
   function reply(msg){
     var l=msg.toLowerCase();
     for(var i=0;i<faqs.length;i++)for(var j=0;j<faqs[i].k.length;j++)if(l.indexOf(faqs[i].k[j])!==-1)return faqs[i].a;
-    return 'Good question — best thing is to get Mark the details directly. Fill out the form below and he’ll come back with a real number.';
+    return 'Good question — best thing is to get Mark the details directly. Fill out the form below and he\'ll come back with a real number.';
   }
   function addMsg(text,isUser){
     var wrap=document.createElement('div');
@@ -868,7 +868,7 @@ section{padding:80px 0;}
       });
       fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()})
         .then(function(){
-          bub.innerHTML='<div style="color:#4ade80;font-weight:700;font-size:15px;margin-bottom:6px;">✓ You're in the queue.</div>'
+          bub.innerHTML='<div style="color:#4ade80;font-weight:700;font-size:15px;margin-bottom:6px;">✓ You\'re in the queue.</div>'
             +'<div style="font-size:13px;color:#94a3b8;">Mark has everything he needs to come back with a real number — not a rough guess. Expect a call within 24 hours. Need it faster? <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.</div>';
           if(input){input.disabled=true;input.placeholder='Message sent — Mark will be in touch.';}
           if(sendBtn)sendBtn.disabled=true;
