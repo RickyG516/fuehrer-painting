@@ -294,6 +294,30 @@ section{padding:80px 0;}
   .chat-input{flex:1;background:#1e2a3a;border:1px solid #2B35AF;border-radius:8px;color:#e5e5e5;font-size:14px;padding:9px 12px;outline:none;font-family:inherit;}
   .chat-input:focus{border-color:#60a5fa;}
   .chat-send{background:#2B35AF;border:none;border-radius:8px;width:38px;height:38px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;}
+
+/* ── Gallery v2 ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.gallery-item{border-radius:10px;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--black4);border:1px solid var(--border);cursor:pointer;transition:all 0.22s;}
+.gallery-item:hover{border-color:var(--blue-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.55);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.35s;}
+.gallery-item:hover img{transform:scale(1.07);}
+.gallery-tag{position:absolute;bottom:8px;left:8px;background:rgba(5,8,16,0.82);border:1px solid var(--border);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--offwhite);backdrop-filter:blur(6px);}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,8,16,0.65) 0%,transparent 50%);opacity:0;transition:opacity 0.25s;display:flex;align-items:center;justify-content:center;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-zoom-icon{font-size:22px;color:#fff;opacity:0.9;}
+/* Lightbox */
+.lb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.lb-overlay.open{opacity:1;pointer-events:all;}
+.lb-img-wrap{position:relative;max-width:90vw;max-height:88vh;display:flex;align-items:center;justify-content:center;}
+.lb-img{max-width:90vw;max-height:82vh;border-radius:10px;object-fit:contain;box-shadow:0 16px 64px rgba(0,0,0,0.8);}
+.lb-close{position:fixed;top:20px;right:24px;width:44px;height:44px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:1001;line-height:1;}
+.lb-close:hover{background:rgba(255,255,255,0.22);}
+.lb-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:1001;}
+.lb-arrow:hover{background:rgba(255,255,255,0.22);}
+.lb-prev{left:16px;}.lb-next{right:16px;}
+.lb-caption{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(5,8,16,0.85);border:1px solid var(--border);border-radius:50px;padding:6px 20px;font-size:13px;font-weight:600;color:var(--offwhite);white-space:nowrap;z-index:1001;}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px;}}
 </style>
 <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV9GQP3YJ0"></script>
@@ -441,319 +465,260 @@ section{padding:80px 0;}
 </section>
 
 <!-- GALLERY GRID -->
-<section style="background:var(--black);padding:80px 0;">
+<section style="background:var(--black);padding:72px 0 80px;">
   <div class="container">
-    <div style="margin-bottom:40px;" class="fade-in">
+    <div style="margin-bottom:36px;" class="fade-in">
       <div class="section-label">Project Gallery</div>
-      <h2 class="section-title" style="margin-bottom:24px;">Browse Our Work</h2>
+      <h2 class="section-title" style="margin-bottom:22px;">Browse Our Work</h2>
       <div class="filter-bar" id="filterBar">
         <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="interior">Interior</button>
         <button class="filter-btn" data-filter="exterior">Exterior</button>
         <button class="filter-btn" data-filter="cabinets">Cabinets</button>
         <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="staining">Staining</button>
       </div>
     </div>
-
-        <div class="gallery-grid" id="galleryGrid">
-      <!-- Interior -->
-      <div class="gallery-item fade-in delay-1" data-cat="interior">
-        <img src="images/interior-after-1.jpg" alt="Interior painting living room Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item fade-in delay-1" data-cat="interior" data-idx="0">
+        <img src="images/interior-after-1.jpg" alt="Interior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="interior">
-        <img src="images/interior-before-1.jpg" alt="Interior before painting Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="interior" data-idx="1">
+        <img src="images/interior-before-1.jpg" alt="Interior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="interior">
+      <div class="gallery-item fade-in delay-3" data-cat="interior" data-idx="2">
         <img src="images/interior-new-1.jpg" alt="Interior painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="interior">
-        <img src="images/interior-new-2.jpg" alt="Interior painting bedroom Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="interior" data-idx="3">
+        <img src="images/interior-new-2.jpg" alt="Interior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="interior">
-        <img src="images/interior-3.jpg" alt="Interior painting project Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="interior" data-idx="4">
+        <img src="images/interior-3.jpg" alt="Interior project Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="interior">
-        <img src="images/interior-4.jpg" alt="Interior painting Dubuque home" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="interior" data-idx="5">
+        <img src="images/interior-4.jpg" alt="Interior project Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="interior">
+      <div class="gallery-item fade-in delay-3" data-cat="interior" data-idx="6">
         <img src="images/interior-bathroom.jpg" alt="Bathroom painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="interior">
-        <img src="images/interior-door.jpg" alt="Interior door painting Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="interior" data-idx="7">
+        <img src="images/interior-door.jpg" alt="Door painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Interior</div>
       </div>
-      <!-- Exterior -->
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-after-1.jpg" alt="Exterior house painting after Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="8">
+        <img src="images/exterior-after-1.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-before-1.jpg" alt="Exterior house painting before Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="9">
+        <img src="images/exterior-before-1.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-after-2.jpg" alt="Exterior painting after Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="10">
+        <img src="images/exterior-after-2.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-before-2.jpg" alt="Exterior painting before Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="11">
+        <img src="images/exterior-before-2.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-after-3.jpg" alt="Home exterior painting Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="12">
+        <img src="images/exterior-after-3.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-before-3.jpg" alt="Home exterior before painting Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="13">
+        <img src="images/exterior-before-3.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-after-4.jpg" alt="Exterior siding painting after Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="14">
+        <img src="images/exterior-after-4.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-before-4.jpg" alt="Exterior siding painting before Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="15">
+        <img src="images/exterior-before-4.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-after-5.jpg" alt="House painting after Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="16">
+        <img src="images/exterior-after-5.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-before-5.jpg" alt="House painting before Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="17">
+        <img src="images/exterior-before-5.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-after-7.jpg" alt="Exterior painting after project Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="18">
+        <img src="images/exterior-after-7.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-before-7.jpg" alt="Exterior painting before project Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="19">
+        <img src="images/exterior-before-7.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-after-9.jpg" alt="Exterior house painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="20">
+        <img src="images/exterior-after-9.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-before-9.jpg" alt="Exterior before painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="21">
+        <img src="images/exterior-before-9.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-after-10.jpg" alt="Exterior painting after Iowa home" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="22">
+        <img src="images/exterior-after-10.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-before-10.jpg" alt="Exterior painting before Iowa home" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="23">
+        <img src="images/exterior-before-10.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-after-11.jpg" alt="Home exterior after painting Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="24">
+        <img src="images/exterior-after-11.jpg" alt="Exterior — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-before-11.jpg" alt="Home exterior before painting Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="25">
+        <img src="images/exterior-before-11.jpg" alt="Exterior — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-6.jpg" alt="Exterior house painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="26">
+        <img src="images/exterior-6.jpg" alt="Exterior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-7.jpg" alt="Exterior painting project Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="27">
+        <img src="images/exterior-7.jpg" alt="Exterior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/exterior-8.jpg" alt="Exterior home painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="28">
+        <img src="images/exterior-8.jpg" alt="Exterior painting Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
+      <div class="gallery-item fade-in delay-2" data-cat="exterior" data-idx="29">
         <img src="images/exterior-9.jpg" alt="Exterior painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/garage-doors-after.jpg" alt="Garage door painting after Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="exterior" data-idx="30">
+        <img src="images/garage-doors-after.jpg" alt="Garage doors — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/garage-doors-before.jpg" alt="Garage door painting before Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="exterior" data-idx="31">
+        <img src="images/garage-doors-before.jpg" alt="Garage doors — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Exterior</div>
       </div>
-      <!-- Cabinets -->
-      <div class="gallery-item fade-in delay-1" data-cat="cabinets">
-        <img src="images/cabinets-after-1.jpg" alt="Cabinet painting after Dubuque kitchen" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="cabinets" data-idx="32">
+        <img src="images/cabinets-after-1.jpg" alt="Cabinets — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="cabinets">
-        <img src="images/cabinets-before-1.jpg" alt="Cabinet painting before Dubuque kitchen" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="cabinets" data-idx="33">
+        <img src="images/cabinets-before-1.jpg" alt="Cabinets — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="cabinets">
-        <img src="images/cabinets-after-1b.jpg" alt="Kitchen cabinet painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="cabinets" data-idx="34">
+        <img src="images/cabinets-after-1b.jpg" alt="Cabinets — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="cabinets">
+      <div class="gallery-item fade-in delay-1" data-cat="cabinets" data-idx="35">
         <img src="images/cabinets-new-1.jpg" alt="Cabinet refinishing Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="cabinets">
-        <img src="images/cabinets-new-2.jpg" alt="Cabinet painting project Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="cabinets" data-idx="36">
+        <img src="images/cabinets-new-2.jpg" alt="Cabinet refinishing Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="cabinets">
-        <img src="images/kitchen-cabinets-1.jpg" alt="Kitchen cabinet painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-2" data-cat="cabinets" data-idx="37">
+        <img src="images/kitchen-cabinets-1.jpg" alt="Kitchen cabinets Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="cabinets">
-        <img src="images/kitchen-cabinets-2.jpg" alt="Kitchen cabinet refinishing Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="cabinets" data-idx="38">
+        <img src="images/kitchen-cabinets-2.jpg" alt="Kitchen cabinets Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Cabinets</div>
       </div>
-      <!-- Commercial -->
-      <div class="gallery-item fade-in delay-1" data-cat="commercial">
-        <img src="images/commercial-tall-ceilings.jpg" alt="Commercial painting tall ceilings Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="commercial" data-idx="39">
+        <img src="images/commercial-tall-ceilings.jpg" alt="Commercial — tall ceilings Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Commercial</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="commercial">
-        <img src="images/commercial-progress.jpg" alt="Commercial painting project in progress Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="commercial" data-idx="40">
+        <img src="images/commercial-progress.jpg" alt="Commercial — in progress Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Commercial</div>
       </div>
-      <div class="gallery-item fade-in delay-3" data-cat="commercial">
+      <div class="gallery-item fade-in delay-2" data-cat="commercial" data-idx="41">
         <img src="images/commercial-new-1.jpg" alt="Commercial painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Commercial</div>
       </div>
-      <div class="gallery-item fade-in delay-1" data-cat="commercial">
-        <img src="images/commercial-building-after.jpg" alt="Commercial building painting after Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-3" data-cat="commercial" data-idx="42">
+        <img src="images/commercial-building-after.jpg" alt="Commercial building — after Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Commercial</div>
       </div>
-      <div class="gallery-item fade-in delay-2" data-cat="commercial">
-        <img src="images/commercial-building-before.jpg" alt="Commercial building painting before Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
+      <div class="gallery-item fade-in delay-1" data-cat="commercial" data-idx="43">
+        <img src="images/commercial-building-before.jpg" alt="Commercial building — before Dubuque Iowa" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Commercial</div>
       </div>
-      <!-- Staining -->
-      <div class="gallery-item fade-in delay-1" data-cat="staining">
+      <div class="gallery-item fade-in delay-1" data-cat="staining" data-idx="44">
         <img src="images/deck-stain.jpg" alt="Deck staining Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><span class="gallery-zoom-icon">&#128269;</span></div>
         <div class="gallery-tag">Staining</div>
       </div>
     </div>
-        <div class="gallery-tag">Interior</div>
-      </div>
-      <div class="gallery-item fade-in delay-2" data-cat="interior">
-        <img src="images/interior-after-1.jpg" alt="Interior painting living room Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Interior</div>
-      </div>
-      <div class="gallery-item fade-in delay-3" data-cat="interior">
-        <img src="images/interior-door.jpg" alt="Interior painting bedroom Dubuque" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Interior</div>
-      </div>
-      <!-- Exterior photos -->
-      <div class="gallery-item fade-in delay-1" data-cat="exterior">
-        <img src="images/exterior-after-5.jpg" alt="Exterior painting Dubuque Iowa house" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Exterior</div>
-      </div>
-      <div class="gallery-item fade-in delay-2" data-cat="exterior">
-        <img src="images/exterior-8.jpg" alt="Exterior house painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Exterior</div>
-      </div>
-      <div class="gallery-item fade-in delay-3" data-cat="exterior">
-        <img src="images/cabinets-after-1.jpg" alt="Exterior siding painting Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Exterior</div>
-      </div>
-      <!-- Cabinet photos -->
-      <div class="gallery-item fade-in delay-1" data-cat="cabinets">
-        <img src="images/exterior-after-2.jpg" alt="Cabinet painting Dubuque Iowa kitchen" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Cabinets</div>
-      </div>
-      <div class="gallery-item fade-in delay-2" data-cat="cabinets">
-        <img src="images/exterior-after-3.jpg" alt="Kitchen cabinet refinishing Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Cabinets</div>
-      </div>
-      <div class="gallery-item fade-in delay-3" data-cat="cabinets">
-        <img src="images/exterior-9.jpg" alt="Cabinet painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Cabinets</div>
-      </div>
-      <!-- Commercial photos -->
-      <div class="gallery-item fade-in delay-1" data-cat="commercial">
-        <img src="images/exterior-after-1.jpg" alt="Commercial painting Dubuque Iowa office" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Commercial</div>
-      </div>
-      <div class="gallery-item fade-in delay-2" data-cat="commercial">
-        <img src="images/interior-new-1.jpg" alt="Commercial painting Dubuque Iowa retail" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Commercial</div>
-      </div>
-      <div class="gallery-item fade-in delay-3" data-cat="interior">
-        <img src="images/interior-new-2.jpg" alt="Interior painting Dubuque Iowa" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-tag">Interior</div>
-      </div>
-    </div>
-      <h3 style="font-size:20px;font-weight:700;margin-bottom:10px;">Mark &#8212; Add Your Real Project Photos Here</h3>
-      <p style="color:var(--muted);font-size:15px;max-width:580px;margin:0 auto 16px;line-height:1.7;">Upload your before/after photos to the <strong style="color:var(--offwhite);">images/gallery/</strong> folder in the GitHub repo, then replace the Unsplash URLs above with your real photo paths. Each photo should be named clearly: <code style="background:var(--black3);padding:2px 8px;border-radius:4px;font-size:13px;">gallery-interior-01.jpg</code>, <code style="background:var(--black3);padding:2px 8px;border-radius:4px;font-size:13px;">gallery-cabinet-before-01.jpg</code>, etc.</p>
-      <a href="contact.html" class="btn-primary">In the Meantime — Get an Estimate</a>
-    </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb">
+  <button class="lb-close" id="lbClose">&#x2715;</button>
+  <button class="lb-arrow lb-prev" id="lbPrev">&#8592;</button>
+  <div class="lb-img-wrap">
+    <img class="lb-img" id="lbImg" src="" alt="">
+  </div>
+  <button class="lb-arrow lb-next" id="lbNext">&#8594;</button>
+  <div class="lb-caption" id="lbCap"></div>
+</div>
 
 <!-- CTA -->
 <section class="cta-section">
@@ -1004,5 +969,69 @@ section{padding:80px 0;}
   <textarea name="scope"></textarea>
   <input name="timeline" type="text">
 </form>
+
+<script>
+(function(){
+  var photos=[{src:"images/interior-after-1.jpg",cap:"Interior — after"},{src:"images/interior-before-1.jpg",cap:"Interior — before"},{src:"images/interior-new-1.jpg",cap:"Interior painting"},{src:"images/interior-new-2.jpg",cap:"Interior painting"},{src:"images/interior-3.jpg",cap:"Interior project"},{src:"images/interior-4.jpg",cap:"Interior project"},{src:"images/interior-bathroom.jpg",cap:"Bathroom painting"},{src:"images/interior-door.jpg",cap:"Door painting"},{src:"images/exterior-after-1.jpg",cap:"Exterior — after"},{src:"images/exterior-before-1.jpg",cap:"Exterior — before"},{src:"images/exterior-after-2.jpg",cap:"Exterior — after"},{src:"images/exterior-before-2.jpg",cap:"Exterior — before"},{src:"images/exterior-after-3.jpg",cap:"Exterior — after"},{src:"images/exterior-before-3.jpg",cap:"Exterior — before"},{src:"images/exterior-after-4.jpg",cap:"Exterior — after"},{src:"images/exterior-before-4.jpg",cap:"Exterior — before"},{src:"images/exterior-after-5.jpg",cap:"Exterior — after"},{src:"images/exterior-before-5.jpg",cap:"Exterior — before"},{src:"images/exterior-after-7.jpg",cap:"Exterior — after"},{src:"images/exterior-before-7.jpg",cap:"Exterior — before"},{src:"images/exterior-after-9.jpg",cap:"Exterior — after"},{src:"images/exterior-before-9.jpg",cap:"Exterior — before"},{src:"images/exterior-after-10.jpg",cap:"Exterior — after"},{src:"images/exterior-before-10.jpg",cap:"Exterior — before"},{src:"images/exterior-after-11.jpg",cap:"Exterior — after"},{src:"images/exterior-before-11.jpg",cap:"Exterior — before"},{src:"images/exterior-6.jpg",cap:"Exterior painting"},{src:"images/exterior-7.jpg",cap:"Exterior painting"},{src:"images/exterior-8.jpg",cap:"Exterior painting"},{src:"images/exterior-9.jpg",cap:"Exterior painting"},{src:"images/garage-doors-after.jpg",cap:"Garage doors — after"},{src:"images/garage-doors-before.jpg",cap:"Garage doors — before"},{src:"images/cabinets-after-1.jpg",cap:"Cabinets — after"},{src:"images/cabinets-before-1.jpg",cap:"Cabinets — before"},{src:"images/cabinets-after-1b.jpg",cap:"Cabinets — after"},{src:"images/cabinets-new-1.jpg",cap:"Cabinet refinishing"},{src:"images/cabinets-new-2.jpg",cap:"Cabinet refinishing"},{src:"images/kitchen-cabinets-1.jpg",cap:"Kitchen cabinets"},{src:"images/kitchen-cabinets-2.jpg",cap:"Kitchen cabinets"},{src:"images/commercial-tall-ceilings.jpg",cap:"Commercial — tall ceilings"},{src:"images/commercial-progress.jpg",cap:"Commercial — in progress"},{src:"images/commercial-new-1.jpg",cap:"Commercial painting"},{src:"images/commercial-building-after.jpg",cap:"Commercial building — after"},{src:"images/commercial-building-before.jpg",cap:"Commercial building — before"},{src:"images/deck-stain.jpg",cap:"Deck staining"}];
+  var filtered=photos.map((_,i)=>i);
+  var cur=0;
+
+  var overlay=document.getElementById('lb');
+  var lbImg=document.getElementById('lbImg');
+  var lbCap=document.getElementById('lbCap');
+
+  function open(idx){
+    cur=idx;
+    lbImg.src=photos[filtered[cur]].src;
+    lbCap.textContent=photos[filtered[cur]].cap+' — Fuehrer Painting LLC';
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';}
+  function prev(){cur=(cur-1+filtered.length)%filtered.length;open(cur);}
+  function next(){cur=(cur+1)%filtered.length;open(cur);}
+
+  // Clicks on grid items
+  document.getElementById('galleryGrid').addEventListener('click',function(e){
+    var item=e.target.closest('.gallery-item');
+    if(!item)return;
+    var itemIdx=parseInt(item.dataset.idx);
+    var pos=filtered.indexOf(itemIdx);
+    if(pos<0)pos=0;
+    open(pos);
+  });
+
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();prev();});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();next();});
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){
+    if(!overlay.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')prev();
+    if(e.key==='ArrowRight')next();
+  });
+
+  // Filter
+  document.getElementById('filterBar').addEventListener('click',function(e){
+    var btn=e.target.closest('.filter-btn');
+    if(!btn)return;
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var f=btn.dataset.filter;
+    var items=document.querySelectorAll('.gallery-item');
+    filtered=[];
+    items.forEach(function(item){
+      var show=(f==='all'||item.dataset.cat===f);
+      item.style.display=show?'':'none';
+      if(show)filtered.push(parseInt(item.dataset.idx));
+    });
+  });
+
+  // fade-in on scroll
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+  document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>
