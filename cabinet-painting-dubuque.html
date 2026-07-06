@@ -345,8 +345,16 @@ section{padding:80px 0;}
     "@type": "Service",
     "name": "Cabinet Painting & Refinishing",
     "serviceType": "Painting",
+    "description": "Kitchen and bathroom cabinet painting and refinishing in Dubuque, Iowa. Factory-smooth finish with proper prep, primer, and professional spray application.",
     "provider": {"@id": "https://fuehrerpaintingllc.com/#business"},
-    "areaServed": {"@type": "State", "name": "Iowa"},
+    "areaServed": [
+      {"@type": "City", "name": "Dubuque", "addressRegion": "IA"},
+      {"@type": "City", "name": "Dyersville", "addressRegion": "IA"},
+      {"@type": "City", "name": "Peosta", "addressRegion": "IA"},
+      {"@type": "City", "name": "Asbury", "addressRegion": "IA"},
+      {"@type": "City", "name": "Galena", "addressRegion": "IL"},
+      {"@type": "City", "name": "Platteville", "addressRegion": "WI"}
+    ],
     "url": "https://fuehrerpaintingllc.com/cabinet-painting-dubuque.html"
   }
 </script>
@@ -412,6 +420,10 @@ section{padding:80px 0;}
     }
   }
 </script>
+<style>
+  @media(max-width:600px){.related-svc-grid{grid-template-columns:1fr !important;}}
+  @media(min-width:601px) and (max-width:768px){.related-svc-grid{grid-template-columns:1fr 1fr !important;}}
+</style>
 </head>
 <body>
 
@@ -741,6 +753,32 @@ section{padding:80px 0;}
 </section>
 
 <!-- CTA -->
+
+  <!-- RELATED SERVICES -->
+  <section style="background:var(--black2);padding:60px 0 50px;border-top:1px solid var(--border);">
+    <div class="container">
+      <h2 style="text-align:center;font-size:clamp(20px,3vw,28px);margin-bottom:8px;color:var(--white);">More Services</h2>
+      <p style="text-align:center;color:var(--muted);margin-bottom:36px;font-size:15px;">Fuehrer Painting LLC handles it all — inside, outside, and everything in between.</p>
+      <div class="related-svc-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto;">
+        <a href="interior-painting-dubuque.html" style="display:block;background:var(--black4);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='var(--blue-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;">Interior Painting</div>
+          <div style="font-size:13px;color:var(--muted);">Full interior painting services</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--blue-bright);font-weight:600;">Learn more →</div>
+        </a>
+        <a href="exterior-painting-dubuque.html" style="display:block;background:var(--black4);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='var(--blue-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;">Exterior Painting</div>
+          <div style="font-size:13px;color:var(--muted);">House & building exteriors</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--blue-bright);font-weight:600;">Learn more →</div>
+        </a>
+        <a href="commercial-painting-dubuque.html" style="display:block;background:var(--black4);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='var(--blue-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;">Commercial Painting</div>
+          <div style="font-size:13px;color:var(--muted);">Offices & commercial spaces</div>
+          <div style="margin-top:12px;font-size:12px;color:var(--blue-bright);font-weight:600;">Learn more →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
 <section class="cta-section">
   <div class="container">
     <div class="fade-in">
