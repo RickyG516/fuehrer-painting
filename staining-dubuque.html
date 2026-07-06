@@ -197,59 +197,22 @@ section{padding:80px 0;}
     .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #000000; border-bottom: 1px solid rgba(43,53,175,0.3); padding: 20px; gap: 16px; align-items: flex-start; }
     .nav-links.open { display: flex; }
     .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown:hover .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown.open .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
+      display: none;
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(6,10,20,0.6);
+      border: 1px solid rgba(43,53,175,0.3);
+      border-radius: 8px;
+      padding: 4px 0;
+      margin-top: 6px;
+      min-width: auto;
+      box-shadow: none;
+      transition: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-content { padding: 0 24px; }
   }

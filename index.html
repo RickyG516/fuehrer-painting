@@ -22,6 +22,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
 <meta name="description" content="Fuehrer Painting LLC — licensed, insured, and serving Dubuque and the tri-state area since 2020. Interior, exterior, staining, power washing &amp; commercial painting. Free estimates.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+  html, body { overflow-x: hidden; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --blue: #2B35AF;
@@ -343,59 +344,22 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
     .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #000000; border-bottom: 1px solid rgba(43,53,175,0.3); padding: 20px; gap: 16px; align-items: flex-start; }
     .nav-links.open { display: flex; }
     .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown:hover .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown.open .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
+      display: none;
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(6,10,20,0.6);
+      border: 1px solid rgba(43,53,175,0.3);
+      border-radius: 8px;
+      padding: 4px 0;
+      margin-top: 6px;
+      min-width: auto;
+      box-shadow: none;
+      transition: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-content { padding: 0 24px; }
   }
@@ -445,7 +409,7 @@ SOURCE: CLAUDE OUTPUT — Ricky Garner
   .hero h1 span { color:var(--blue-bright); }
   .hero p { font-size:16px; color:var(--offwhite); margin-bottom:22px; line-height:1.6; opacity:0.9; }
   .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
-  .hero-trust { display:flex; gap:28px; margin-top:18px; flex-wrap:nowrap; align-items:center; }
+  .hero-trust { display:flex; gap:12px 24px; margin-top:18px; flex-wrap:wrap; align-items:center; }
   .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
   .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
   .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }

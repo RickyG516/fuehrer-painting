@@ -189,59 +189,22 @@ section{padding:80px 0;}
     .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #000000; border-bottom: 1px solid rgba(43,53,175,0.3); padding: 20px; gap: 16px; align-items: flex-start; }
     .nav-links.open { display: flex; }
     .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown:hover .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
-    .nav-dropdown.open .nav-dropdown-menu {
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 100%;
-    padding-top: 12px;
-    left: -16px;
-    background: #060a14;
-    border: 1px solid rgba(43,53,175,0.4);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 210px;
-    z-index: 300;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
-    transition: opacity 0.18s ease, visibility 0s linear 0.35s;
-  }
+      display: none;
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(6,10,20,0.6);
+      border: 1px solid rgba(43,53,175,0.3);
+      border-radius: 8px;
+      padding: 4px 0;
+      margin-top: 6px;
+      min-width: auto;
+      box-shadow: none;
+      transition: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-content { padding: 0 24px; }
   }
@@ -448,11 +411,12 @@ section{padding:80px 0;}
   <div class="container">
     <div class="grid-2">
       <div class="story-img fade-in">
-        <img src="images/about-family.png" alt="Mark Fuehrer and family - Fuehrer Painting LLC Dubuque Iowa" style="object-position:top;" loading="lazy">
-        <div class="story-badge">
-          <div class="b-num">10+</div>
-          <div class="b-lbl">Years in Dubuque</div>
-        </div>
+        <img src="images/about-family.jpg" alt="Mark Fuehrer and family - Fuehrer Painting LLC Dubuque Iowa" style="object-position:top;" loading="lazy">
+
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:14px;background:rgba(30,58,138,0.18);border:1px solid var(--blue-light);border-radius:12px;padding:14px 20px;margin-top:16px;">
+        <div style="font-size:28px;font-weight:900;color:var(--blue-bright);line-height:1;">10+</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Years in<br>Dubuque</div>
       </div>
       <div class="fade-in delay-2">
         <div class="section-label">The Story</div>
