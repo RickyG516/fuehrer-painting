@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+  html, body { overflow-x: hidden; max-width: 100%; }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--blue:#2B35AF;--blue-mid:#2B35AF;--blue-light:#4a90d9;--blue-bright:#60a5fa;--black:#050810;--black2:#0c1220;--black3:#111827;--black4:#1e2a3a;--border:#2B35AF44;--white:#ffffff;--offwhite:#e8f0fe;--muted:#94a3b8;--radius:10px;}
 body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6;}
@@ -63,7 +64,7 @@ section{padding:80px 0;}
 .ba-wrap{position:relative;overflow:hidden;border-radius:16px;cursor:ew-resize;user-select:none;touch-action:none;box-shadow:0 8px 40px rgba(0,0,0,0.6);}
 .ba-after-img{display:block;width:100%;height:480px;object-fit:cover;pointer-events:none;}
 .ba-before-layer{position:absolute;top:0;left:0;bottom:0;overflow:hidden;width:50%;border-right:3px solid var(--blue-bright);}
-.ba-before-img{display:block;width:100vw;max-width:100%;height:480px;object-fit:cover;pointer-events:none;}
+.ba-before-img{display:block;width:100%;height:480px;object-fit:cover;pointer-events:none;}
 .ba-handle{position:absolute;top:50%;right:-22px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--blue);border:3px solid var(--blue-bright);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:0 4px 20px rgba(43,53,175,0.7);z-index:10;}
 .ba-label{position:absolute;top:16px;background:rgba(5,8,16,0.75);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.08em;padding:5px 12px;border-radius:50px;text-transform:uppercase;border:1px solid var(--border);}
 .ba-label.before{left:16px;}.ba-label.after{right:16px;}
@@ -167,6 +168,24 @@ section{padding:80px 0;}
 
   /* ── MOBILE NAV ── */
   @media (max-width: 768px) {
+
+
+    /* centered hero mobile fix */
+    .hero-content { position: relative !important; left: auto !important; transform: none !important; padding: 0 20px !important; width: 100% !important; }
+    /* ── GLOBAL MOBILE FIXES ── */
+    html, body { overflow-x: hidden; }
+    .hero-content { padding: 0 20px !important; max-width: 100% !important; }
+    .hero-title, h1 { font-size: clamp(26px, 7vw, 42px) !important; line-height: 1.15 !important; }
+    .hero-sub, .hero-subtitle { font-size: 15px !important; }
+    .hero-trust { flex-wrap: wrap !important; gap: 10px 16px !important; }
+    .hero-trust-item { font-size: 13px !important; }
+    .hero-section { min-height: 420px !important; padding: 80px 0 60px !important; }
+    .stat-row, .stats-row, .stat-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+    .warning-grid { grid-template-columns: 1fr !important; }
+    .gc-box { grid-template-columns: 1fr !important; padding: 32px 20px !important; }
+    .builder-quote { padding: 36px 20px !important; }
+    .cta-section { padding: 60px 0 !important; }
+    section { padding-left: 0 !important; padding-right: 0 !important; }
     .nav-hamburger { display: flex; }
     .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: #000000; border-bottom: 1px solid rgba(43,53,175,0.3); padding: 20px; gap: 16px; align-items: flex-start; }
     .nav-links.open { display: flex; }
@@ -236,7 +255,7 @@ section{padding:80px 0;}
   .hero h1 span { color:var(--blue-bright); }
   .hero p { font-size:17px; color:var(--offwhite); margin-bottom:36px; line-height:1.7; opacity:0.9; }
   .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
-  .hero-trust { display:flex; gap:28px; margin-top:36px; flex-wrap:nowrap; align-items:center; }
+  .hero-trust { display:flex; gap:28px; margin-top:36px; flex-wrap:wrap; align-items:center; }
   .hero-trust-item { display:flex; align-items:center; gap:8px; color:var(--offwhite); font-size:14px; opacity:0.85; }
   .hero-trust-item .check { color:var(--blue-bright); font-weight:700; }
   .trust-bar { position:relative; z-index:10; background:var(--blue); padding:22px 0; border-top:1px solid var(--blue-light); border-bottom:1px solid var(--blue-light); }

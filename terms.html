@@ -8,6 +8,7 @@
 <meta name="description" content="Terms of Service for Fuehrer Painting LLC — painting contractor serving Dubuque and the Tri-State area.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+  html, body { overflow-x: hidden; max-width: 100%; }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--blue:#2B35AF;--blue-mid:#2B35AF;--blue-light:#4a90d9;--blue-bright:#60a5fa;--black:#050810;--black2:#0c1220;--black3:#111827;--black4:#1e2a3a;--border:#2B35AF44;--white:#ffffff;--offwhite:#e8f0fe;--muted:#94a3b8;--radius:10px}
   body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6}
@@ -76,6 +77,22 @@
   .chat-input{flex:1;background:#1e2a3a;border:1px solid #2B35AF;border-radius:8px;color:#e5e5e5;font-size:14px;padding:9px 12px;outline:none;font-family:inherit;}
   .chat-input:focus{border-color:#60a5fa;}
   .chat-send{background:#2B35AF;border:none;border-radius:8px;width:38px;height:38px;color:#fff;cursor:pointer;font-size:16px;flex-shrink:0;}
+  @media(max-width:768px){
+    /* ── GLOBAL MOBILE FIXES ── */
+    html, body { overflow-x: hidden; }
+    .hero-content { padding: 0 20px !important; max-width: 100% !important; }
+    .hero-title, h1 { font-size: clamp(26px, 7vw, 42px) !important; line-height: 1.15 !important; }
+    .hero-sub, .hero-subtitle { font-size: 15px !important; }
+    .hero-trust { flex-wrap: wrap !important; gap: 10px 16px !important; }
+    .hero-trust-item { font-size: 13px !important; }
+    .hero-section { min-height: 420px !important; padding: 80px 0 60px !important; }
+    .stat-row, .stats-row, .stat-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+    .warning-grid { grid-template-columns: 1fr !important; }
+    .gc-box { grid-template-columns: 1fr !important; padding: 32px 20px !important; }
+    .builder-quote { padding: 36px 20px !important; }
+    .cta-section { padding: 60px 0 !important; }
+    section { padding-left: 0 !important; padding-right: 0 !important; }
+}
 </style>
 <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV9GQP3YJ0"></script>
