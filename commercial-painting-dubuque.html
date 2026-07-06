@@ -321,6 +321,21 @@ section{padding:80px 0;}
 .rw-img-wrap img{width:100%;height:360px;object-fit:cover;display:block;}
 .rw-caption{display:block;padding:12px 16px;background:#1a1a1a;color:#aaa;font-size:13px;}
 @media(max-width:768px){.rw-grid{grid-template-columns:1fr;}}
+
+/* Industry card animated illustrations */
+.industry-anim{width:100%;height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.anim-room{position:absolute;inset:0;}
+/* paint-sweep */
+@keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
+@keyframes sweep2{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fillUp{0%{height:0}100%{height:60%}}
+@keyframes pulse-ring{0%{transform:scale(0.8);opacity:1}100%{transform:scale(1.6);opacity:0}}
+@keyframes blink-light{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes slide-door{0%{transform:translateX(0)}50%{transform:translateX(40%)}100%{transform:translateX(0)}}
+@keyframes rise{0%{transform:scaleY(0);transform-origin:bottom}100%{transform:scaleY(1);transform-origin:bottom}}
+@keyframes drip{0%{height:0;opacity:1}80%{height:22px;opacity:1}100%{height:22px;opacity:0}}
+@keyframes roller-anim{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 </style>
 <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV9GQP3YJ0"></script>
@@ -529,7 +544,22 @@ section{padding:80px 0;}
     <div class="industries-grid">
       <div class="industry-card fade-in delay-1">
         <div class="industry-img">
-          <img src="images/interior-new-1.jpg" alt="Office painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(135deg,#0d1b2a 0%,#1a2a3a 100%);">
+  <!-- wall sweep -->
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,#2563eb33,#60a5fa22);animation:sweep 3s ease-in-out infinite alternate;"></div>
+  <!-- desk silhouette -->
+  <div style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:110px;height:4px;background:#334155;border-radius:2px;"></div>
+  <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:6px;height:22px;background:#334155;border-radius:2px;"></div>
+  <!-- monitor -->
+  <div style="position:absolute;bottom:34px;left:calc(50% - 20px);width:40px;height:28px;background:#1e3a5f;border:2px solid #60a5fa55;border-radius:3px;animation:blink-light 3s ease infinite;"></div>
+  <!-- roller -->
+  <div style="position:absolute;top:22px;right:28px;animation:bob 2s ease-in-out infinite;">
+    <div style="width:30px;height:12px;background:#2563eb;border-radius:4px;"></div>
+    <div style="width:2px;height:16px;background:#94a3b8;margin:0 auto;"></div>
+  </div>
+  <!-- drip -->
+  <div style="position:absolute;top:34px;right:37px;width:4px;background:#60a5fa;border-radius:0 0 2px 2px;animation:drip 2s ease-in-out infinite;"></div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Offices &amp; Professional Spaces</div>
@@ -538,7 +568,19 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-2">
         <div class="industry-img">
-          <img src="images/interior-new-2.jpg" alt="Retail space painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
+  <!-- window panes -->
+  <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:120px;height:70px;background:#1e3a5f;border:2px solid #60a5fa44;border-radius:4px;display:flex;gap:3px;padding:3px;">
+    <div style="flex:1;background:#1e4a7f55;border-radius:2px;"></div>
+    <div style="flex:1;background:#1e4a7f55;border-radius:2px;"></div>
+  </div>
+  <!-- sliding door -->
+  <div style="position:absolute;bottom:30px;left:calc(50% - 24px);width:44px;height:70px;background:#1a3a6a;border:2px solid #60a5fa66;animation:slide-door 4s ease-in-out infinite;"></div>
+  <!-- awning -->
+  <div style="position:absolute;bottom:98px;left:50%;transform:translateX(-50%);width:130px;height:18px;background:linear-gradient(90deg,#e36b1e,#f59e0b,#e36b1e);border-radius:2px 2px 4px 4px;"></div>
+  <!-- paint sweep on facade -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,#e36b1e15 50%,transparent 100%);animation:sweep 4s ease-in-out infinite alternate;"></div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Retail &amp; Storefronts</div>
@@ -547,7 +589,20 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-3">
         <div class="industry-img">
-          <img src="images/interior-bathroom.jpg" alt="Restaurant painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 100%);">
+  <!-- wall color pulse -->
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#2d1b4e44 0%,#1a0a2e44 100%);animation:sweep 5s ease-in-out infinite alternate;"></div>
+  <!-- table -->
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:80px;height:6px;background:#3b2a1a;border-radius:10px;"></div>
+  <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:4px;height:14px;background:#3b2a1a;border-radius:2px;"></div>
+  <!-- plate -->
+  <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:32px;height:8px;background:#e2e8f0;border-radius:50%;"></div>
+  <!-- steam -->
+  <div style="position:absolute;bottom:38px;left:calc(50% - 6px);width:3px;background:linear-gradient(180deg,transparent,#94a3b8aa);border-radius:2px;animation:drip 2s 0s ease-in-out infinite;transform:rotate(180deg);"></div>
+  <div style="position:absolute;bottom:38px;left:calc(50% + 4px);width:3px;background:linear-gradient(180deg,transparent,#94a3b8aa);border-radius:2px;animation:drip 2s 0.6s ease-in-out infinite;transform:rotate(180deg);"></div>
+  <!-- brush -->
+  <div style="position:absolute;top:16px;left:20px;width:50px;height:8px;background:#e36b1e;border-radius:4px;transform:rotate(-20deg);animation:bob 3s ease-in-out infinite;"></div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Restaurants &amp; Food Service</div>
@@ -556,7 +611,26 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-1">
         <div class="industry-img">
-          <img src="images/interior-after-1.jpg" alt="Industrial painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(180deg,#0a0a0f 0%,#111827 100%);">
+  <!-- ceiling beams -->
+  <div style="position:absolute;top:12px;left:0;width:100%;height:3px;background:#1e293b;"></div>
+  <div style="position:absolute;top:28px;left:0;width:100%;height:2px;background:#1e293b88;"></div>
+  <!-- vertical pillars -->
+  <div style="position:absolute;top:0;bottom:0;left:20%;width:4px;background:#1e293b;"></div>
+  <div style="position:absolute;top:0;bottom:0;left:50%;width:4px;background:#1e293b;"></div>
+  <div style="position:absolute;top:0;bottom:0;left:80%;width:4px;background:#1e293b;"></div>
+  <!-- floor line -->
+  <div style="position:absolute;bottom:24px;left:0;width:100%;height:3px;background:#334155;"></div>
+  <!-- paint fill rising from floor -->
+  <div style="position:absolute;bottom:27px;left:10%;width:15%;background:#2563eb33;animation:rise 3s ease-in-out infinite alternate;max-height:60%;height:60%;"></div>
+  <div style="position:absolute;bottom:27px;left:35%;width:15%;background:#2563eb44;animation:rise 3s 0.4s ease-in-out infinite alternate;max-height:40%;height:40%;"></div>
+  <div style="position:absolute;bottom:27px;left:60%;width:15%;background:#2563eb33;animation:rise 3s 0.8s ease-in-out infinite alternate;max-height:50%;height:50%;"></div>
+  <!-- roller icon -->
+  <div style="position:absolute;top:40px;right:16px;animation:bob 2s ease-in-out infinite;">
+    <div style="width:24px;height:10px;background:#60a5fa;border-radius:3px;"></div>
+    <div style="width:2px;height:14px;background:#94a3b8;margin:0 auto;"></div>
+  </div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Warehouses &amp; Industrial</div>
@@ -565,7 +639,31 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-2">
         <div class="industry-img">
-          <img src="images/interior-door.jpg" alt="Multi-unit apartment painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(180deg,#0c1622 0%,#0f1e2e 100%);">
+  <!-- building silhouette: 3 floors x 4 windows -->
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:120px;">
+    <!-- floor 3 -->
+    <div style="display:flex;gap:6px;justify-content:center;margin-bottom:5px;">
+      <div style="width:22px;height:16px;background:#1e4a7f;border-radius:2px;animation:blink-light 4s 0s infinite;"></div>
+      <div style="width:22px;height:16px;background:#1e3a60;border-radius:2px;animation:blink-light 4s 1s infinite;"></div>
+      <div style="width:22px;height:16px;background:#1e4a7f;border-radius:2px;animation:blink-light 4s 2s infinite;"></div>
+    </div>
+    <!-- floor 2 -->
+    <div style="display:flex;gap:6px;justify-content:center;margin-bottom:5px;">
+      <div style="width:22px;height:16px;background:#2563eb55;border-radius:2px;animation:blink-light 4s 0.5s infinite;"></div>
+      <div style="width:22px;height:16px;background:#1e4a7f;border-radius:2px;"></div>
+      <div style="width:22px;height:16px;background:#2563eb55;border-radius:2px;animation:blink-light 4s 1.5s infinite;"></div>
+    </div>
+    <!-- floor 1 -->
+    <div style="display:flex;gap:6px;justify-content:center;">
+      <div style="width:22px;height:16px;background:#1e4a7f;border-radius:2px;"></div>
+      <div style="width:14px;height:22px;background:#1e3a60;border-radius:2px 2px 0 0;margin-top:-6px;"></div>
+      <div style="width:22px;height:16px;background:#1e4a7f;border-radius:2px;animation:blink-light 4s 3s infinite;"></div>
+    </div>
+  </div>
+  <!-- color sweep overlay -->
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent,#e36b1e0a,transparent);animation:sweep 5s ease-in-out infinite alternate;"></div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Multi-Unit &amp; Apartment Properties</div>
@@ -574,12 +672,47 @@ section{padding:80px 0;}
       </div>
       <div class="industry-card fade-in delay-3">
         <div class="industry-img">
-          <img src="images/exterior-after-5.jpg" alt="Healthcare painting Dubuque Iowa" loading="lazy">
+          <div class="industry-anim" style="background:linear-gradient(135deg,#071a2e 0%,#0e2a42 100%);">
+  <!-- clean room grid lines -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(#1e3a5f22 1px,transparent 1px),linear-gradient(90deg,#1e3a5f22 1px,transparent 1px);background-size:24px 24px;"></div>
+  <!-- medical cross -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:bob 3s ease-in-out infinite;">
+    <div style="width:12px;height:36px;background:#22c55e55;border-radius:2px;margin:0 auto;position:relative;">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:12px;background:#22c55e55;border-radius:2px;"></div>
+    </div>
+  </div>
+  <!-- pulse ring -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border:2px solid #22c55e44;border-radius:50%;animation:pulse-ring 2.5s ease-out infinite;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:1px solid #22c55e22;border-radius:50%;animation:pulse-ring 2.5s 0.8s ease-out infinite;"></div>
+  <!-- brush stroke in corner -->
+  <div style="position:absolute;bottom:18px;right:18px;width:40px;height:8px;background:#22c55e33;border-radius:4px;transform:rotate(-15deg);animation:bob 4s ease-in-out infinite;"></div>
+</div>
         </div>
         <div class="industry-body">
           <div class="industry-title">Healthcare &amp; Medical Offices</div>
           <div class="industry-text">Low-VOC and zero-VOC coatings for patient-sensitive environments. We coordinate with facility managers for section-by-section work with zero patient disruption.</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BARN BEFORE/AFTER -->
+<section style="background:var(--black2);padding:64px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;" class="fade-in">
+      <div class="section-label">Recent Work</div>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,40px);">Commercial Project: Before &amp; After</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto;" class="fade-in">
+      <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);">
+        <div style="background:var(--black4);padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;">Before</div>
+        <img src="images/commercial-building-before.jpg" alt="Commercial building before painting Dubuque Iowa" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover;">
+      </div>
+      <div style="border-radius:14px;overflow:hidden;border:1px solid #2563eb55;">
+        <div style="background:var(--black4);padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.08em;color:#60a5fa;text-transform:uppercase;">After</div>
+        <img src="images/commercial-building-after.jpg" alt="Commercial building after painting Dubuque Iowa" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover;">
       </div>
     </div>
   </div>
