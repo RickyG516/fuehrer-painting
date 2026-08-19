@@ -7,8 +7,6 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Dubuque Service Pages -->
   <url>
     <loc>https://fuehrerpaintingllc.com/interior-painting-dubuque.html</loc>
     <lastmod>2026-07-06</lastmod>
@@ -45,8 +43,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Location Pages - Month 1 -->
   <url>
     <loc>https://fuehrerpaintingllc.com/painting-contractor-dyersville.html</loc>
     <lastmod>2026-07-09</lastmod>
@@ -77,8 +73,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Blog -->
   <url>
     <loc>https://fuehrerpaintingllc.com/blog.html</loc>
     <lastmod>2026-08-06</lastmod>
@@ -109,8 +103,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Site Pages -->
   <url>
     <loc>https://fuehrerpaintingllc.com/gallery.html</loc>
     <lastmod>2026-07-06</lastmod>
@@ -153,13 +145,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
-
-  <url>
-    <loc>https://fuehrerpaintingllc.com/blog-questions-to-ask-painting-contractor-dubuque.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
   <url>
     <loc>https://fuehrerpaintingllc.com/blog-cost-to-paint-house-dubuque.html</loc>
     <lastmod>2026-07-30</lastmod>
@@ -171,5 +156,35 @@
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fuehrerpaintingllc.com/painting-contractor-cascade.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fuehrerpaintingllc.com/painting-contractor-maquoketa.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fuehrerpaintingllc.com/painting-contractor-east-dubuque.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fuehrerpaintingllc.com/painting-contractor-freeport.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fuehrerpaintingllc.com/painting-contractor-monroe.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
