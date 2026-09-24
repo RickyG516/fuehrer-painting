@@ -823,11 +823,14 @@ src="https://www.facebook.com/tr?id=28502244096030331&ev=PageView&noscript=1"
         <div class="form-info-row"><span class="form-info-icon">⏰</span> Mon–Sat: 7am – 6pm</div>
       </div>
       <div class="form-box">
-        <div class="form-row"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
-        <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="(563) 555-0000"></div>
+        <form id="estimateForm" name="estimate-request" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="estimate-request">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-row"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" name="phone" placeholder="(563) 555-0000" required></div>
         <div class="form-row">
           <label>Service Needed</label>
-          <select>
+          <select name="service">
             <option value="">Select a service...</option>
             <option>Interior Painting</option>
             <option>Exterior Painting</option>
@@ -838,9 +841,15 @@ src="https://www.facebook.com/tr?id=28502244096030331&ev=PageView&noscript=1"
             <option>Other / Not Sure</option>
           </select>
         </div>
-        <div class="form-row"><label>Tell Us About Your Project</label><textarea placeholder="Brief description — home size, scope, any details..."></textarea></div>
-        <button class="btn-primary form-submit">Get My Free Estimate →</button>
+        <div class="form-row"><label>Tell Us About Your Project</label><textarea name="scope" placeholder="Brief description — home size, scope, any details..."></textarea></div>
+        <button type="submit" class="btn-primary form-submit" id="estimateSubmitBtn">Get My Free Estimate →</button>
+        <p id="estimateFormError" style="display:none;color:#f87171;font-size:13px;margin-top:10px;text-align:center;"></p>
         <div class="form-note">No spam. No pressure. Just a real conversation with Mark.</div>
+        </form>
+        <div id="estimateFormSuccess" style="display:none;text-align:center;padding:30px 0;">
+          <div style="color:#4ade80;font-weight:700;font-size:17px;margin-bottom:8px;">You're in good hands.</div>
+          <div style="color:var(--muted);font-size:14px;">Got it — Mark will be in touch within 1–2 business days. Need it faster? Call <a href="tel:5632134418" style="color:#60a5fa;">(563) 213-4418</a>.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1175,5 +1184,38 @@ src="https://www.facebook.com/tr?id=28502244096030331&ev=PageView&noscript=1"
   <textarea name="scope"></textarea>
   <input name="timeline" type="text">
 </form>
+
+<script>
+(function(){
+  var form = document.getElementById('estimateForm');
+  if(!form) return;
+  var successBox = document.getElementById('estimateFormSuccess');
+  var errorMsg = document.getElementById('estimateFormError');
+  var submitBtn = document.getElementById('estimateSubmitBtn');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(errorMsg){ errorMsg.style.display = 'none'; errorMsg.textContent = ''; }
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+    var data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: data
+    })
+    .then(function(res){
+      if(!res.ok) throw new Error('Submit failed: ' + res.status);
+      form.style.display = 'none';
+      if(successBox) successBox.style.display = 'block';
+    })
+    .catch(function(err){
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Get My Free Estimate →'; }
+      if(errorMsg){
+        errorMsg.textContent = "Something didn't go through — call Mark directly at (563) 213-4418 and he'll take it down himself.";
+        errorMsg.style.display = 'block';
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
