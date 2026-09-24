@@ -1192,8 +1192,9 @@ src="https://www.facebook.com/tr?id=28502244096030331&ev=PageView&noscript=1"
   var successBox = document.getElementById('estimateFormSuccess');
   var errorMsg = document.getElementById('estimateFormError');
   var submitBtn = document.getElementById('estimateSubmitBtn');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
+  function submitEstimateForm(e){
+    if(e){ e.preventDefault(); e.stopPropagation(); }
+    if(submitBtn && submitBtn.disabled) return;
     if(errorMsg){ errorMsg.style.display = 'none'; errorMsg.textContent = ''; }
     if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
     var data = new URLSearchParams(new FormData(form)).toString();
@@ -1214,7 +1215,15 @@ src="https://www.facebook.com/tr?id=28502244096030331&ev=PageView&noscript=1"
         errorMsg.style.display = 'block';
       }
     });
-  });
+  }
+  // Bind directly to the button's click event rather than relying solely on the
+  // form's native 'submit' event — third-party scripts (Meta Pixel's automatic
+  // button-click tracking observed on this page) can intercept a trusted click
+  // and cancel the browser's default submit action before it ever fires. Handling
+  // the click ourselves guarantees the lead is sent regardless of what any
+  // tracking script on the page does with that same click event.
+  if(submitBtn){ submitBtn.addEventListener('click', submitEstimateForm); }
+  form.addEventListener('submit', submitEstimateForm);
 })();
 </script>
 </body>
