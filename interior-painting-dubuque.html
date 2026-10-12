@@ -377,66 +377,185 @@ section{padding:80px 0;}
   }
 </script>
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-    "@id": "https://fuehrerpaintingllc.com/#business",
-    "name": "Fuehrer Painting LLC",
-    "image": "https://fuehrerpaintingllc.com/images/about-van-hero.jpg",
-    "logo": "https://fuehrerpaintingllc.com/images/logo.png",
-    "url": "https://fuehrerpaintingllc.com",
-    "telephone": "+15632134418",
-    "email": "fuehrerpaintingllc@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Dubuque",
-      "addressRegion": "IA",
-      "postalCode": "52001",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 42.5006,
-      "longitude": -90.6646
-    },
-    "openingHoursSpecification": [{
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "HomeAndConstructionBusiness"
+  ],
+  "@id": "https://fuehrerpaintingllc.com/#business",
+  "name": "Fuehrer Painting LLC",
+  "image": "https://fuehrerpaintingllc.com/images/about-van-hero.jpg",
+  "logo": "https://fuehrerpaintingllc.com/images/logo.png",
+  "url": "https://fuehrerpaintingllc.com",
+  "telephone": "+15632134418",
+  "email": "fuehrerpaintingllc@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubuque",
+    "addressRegion": "IA",
+    "postalCode": "52001",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.5006,
+    "longitude": -90.6646
+  },
+  "openingHoursSpecification": [
+    {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "opens": "07:00",
       "closes": "18:00"
-    }],
-    "areaServed": [
-      {"@type": "City", "name": "Dubuque", "addressRegion": "IA"},
-      {"@type": "City", "name": "Dyersville", "addressRegion": "IA"},
-      {"@type": "City", "name": "Peosta", "addressRegion": "IA"},
-      {"@type": "City", "name": "Asbury", "addressRegion": "IA"},
-      {"@type": "City", "name": "Galena", "addressRegion": "IL"},
-      {"@type": "City", "name": "Platteville", "addressRegion": "WI"}
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "reviewCount": "23",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "priceRange": "$$",
-    "foundingDate": "2020",
-    "description": "Fuehrer Painting LLC is a licensed, insured painting contractor serving Dubuque, Iowa and the tri-state area. Interior, exterior, cabinet, commercial painting & wood staining since 2020.",
-    "sameAs": ["https://www.facebook.com/mfpaintingLLC/"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Painting Services",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Painting"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Painting"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cabinet Painting & Refinishing"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Painting"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Deck & Wood Staining"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "New Construction Painting"}}
-      ]
     }
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Dubuque",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Asbury",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Cascade",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Cedar Rapids",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Dyersville",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "East Dubuque",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Freeport",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Galena",
+      "addressRegion": "IL"
+    },
+    {
+      "@type": "City",
+      "name": "Iowa City",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Madison",
+      "addressRegion": "WI"
+    },
+    {
+      "@type": "City",
+      "name": "Maquoketa",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Monroe",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Peosta",
+      "addressRegion": "IA"
+    },
+    {
+      "@type": "City",
+      "name": "Platteville",
+      "addressRegion": "WI"
+    },
+    {
+      "@type": "City",
+      "name": "Rockford",
+      "addressRegion": "IL"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "23",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "priceRange": "$$",
+  "foundingDate": "2020",
+  "description": "Fuehrer Painting LLC is a licensed, insured painting contractor serving Dubuque, Iowa and the tri-state area. Interior, exterior, cabinet, commercial painting & wood staining since 2020.",
+  "sameAs": [
+    "https://www.facebook.com/mfpaintingLLC/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Painting Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Interior Painting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Exterior Painting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cabinet Painting & Refinishing"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Painting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Deck & Wood Staining"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Construction Painting"
+        }
+      }
+    ]
   }
+}
 </script>
 <style>
   @media(max-width:600px){.related-svc-grid{grid-template-columns:1fr !important;}}
@@ -446,6 +565,26 @@ section{padding:80px 0;}
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://fuehrerpaintingllc.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Interior Painting Dubuque IA",
+      "item": "https://fuehrerpaintingllc.com/interior-painting-dubuque.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -781,15 +920,15 @@ section{padding:80px 0;}
         <h2 class="section-title">Serving Dubuque &amp; the Tri-State Area</h2>
         <p style="color:var(--muted);font-size:15px;margin-top:16px;margin-bottom:8px;">We paint homes across the greater Dubuque area and beyond. If you're in the tri-state region, we're within reach.</p>
         <div class="areas-grid">
-          <span class="area-chip">Dubuque, IA</span>
-          <span class="area-chip">Asbury, IA</span>
-          <span class="area-chip">Peosta, IA</span>
-          <span class="area-chip">Dyersville, IA</span>
-          <span class="area-chip">Cascade, IA</span>
+          <a href="index.html" class="area-chip" style="text-decoration:none;">Dubuque, IA</a>
+          <a href="painting-contractor-asbury.html" class="area-chip" style="text-decoration:none;">Asbury, IA</a>
+          <a href="painting-contractor-peosta.html" class="area-chip" style="text-decoration:none;">Peosta, IA</a>
+          <a href="painting-contractor-dyersville.html" class="area-chip" style="text-decoration:none;">Dyersville, IA</a>
+          <a href="painting-contractor-cascade.html" class="area-chip" style="text-decoration:none;">Cascade, IA</a>
           <span class="area-chip">Epworth, IA</span>
-          <span class="area-chip">Galena, IL</span>
-          <span class="area-chip">East Dubuque, IL</span>
-          <span class="area-chip">Platteville, WI</span>
+          <a href="painting-contractor-galena.html" class="area-chip" style="text-decoration:none;">Galena, IL</a>
+          <a href="painting-contractor-east-dubuque.html" class="area-chip" style="text-decoration:none;">East Dubuque, IL</a>
+          <a href="painting-contractor-platteville.html" class="area-chip" style="text-decoration:none;">Platteville, WI</a>
           <span class="area-chip">Lancaster, WI</span>
           <span class="area-chip">Dickeyville, WI</span>
           <span class="area-chip">Cuba City, WI</span>
@@ -877,6 +1016,7 @@ section{padding:80px 0;}
           <div style="margin-top:12px;font-size:12px;color:var(--blue-bright);font-weight:600;">Learn more →</div>
         </a>
       </div>
+      <p id="from-the-blog" style="text-align:center;color:var(--muted);margin-top:28px;font-size:15px;">From the blog: <a href="blog-fall-winter-interior-painting-dubuque.html" style="color:var(--blue-bright);">Why Fall and Winter Are the Best Time for Interior Painting</a> &middot; <a href="blog-how-to-choose-paint-colors-dubuque.html" style="color:var(--blue-bright);">How to Choose Paint Colors That Work</a></p>
     </div>
   </section>
 
